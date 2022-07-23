@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.14;
 
 import {IConnextHandler} from "@nxtp/core/connext/interfaces/IConnextHandler.sol";
@@ -23,10 +24,8 @@ contract SourceRegistry is ICallback {
     uint32 private constant ORIGIN_DOMAIN = 3331;
     uint32 private constant DESTINATION_DOMAIN = 2221;
 
-    address private constant OPTIMISM_ADDRESS =
-        0xF5a2c39a7675795741b44D4a5CA49D46C6D81DAf;
-    bytes4 private constant SELECTOR =
-        bytes4(keccak256("myWalletWasStolen(address wallet)"));
+    address private constant OPTIMISM_ADDRESS = 0xF5a2c39a7675795741b44D4a5CA49D46C6D81DAf;
+    bytes4 private constant SELECTOR = bytes4(keccak256("myWalletWasStolen(address wallet)"));
 
     /// @notice minimum of $5 in eth to register wallet for public goods
     uint256 public publicGoodsRegistrationFee = 5 * 1e18;

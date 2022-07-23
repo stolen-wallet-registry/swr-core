@@ -1,4 +1,5 @@
-pragma solidity 0.8.14;
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.14;
 
 import "./helpers/PriceConsumerV3.sol";
 import "./helpers/PublicGoodsAreGood.sol";

@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.14;
 
 import {IExecutor} from "@nxtp/core/connext/interfaces/IExecutor.sol";
@@ -65,12 +66,7 @@ contract TargetRegistry {
         priceConsumer = PriceFeedConsumer(_priceFeed);
     }
 
-    function myWalletWasStolen(address wallet)
-        external
-        payable
-        onlyExecutor
-        validateWalletRequirements(wallet)
-    {
+    function myWalletWasStolen(address wallet) external payable onlyExecutor validateWalletRequirements(wallet) {
         stolenWalletRegistry._myWalletWasStolen(wallet);
         emit UpdateCompleted(msg.sender, wallet);
     }

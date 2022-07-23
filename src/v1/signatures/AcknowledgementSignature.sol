@@ -1,5 +1,5 @@
-// SPDX-License-Identifier: GPL-3.0
-pragma solidity 0.8.14;
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.14;
 
 import "@openzeppelin/contracts/utils/cryptography/draft-EIP712.sol";
 
@@ -21,7 +21,7 @@ abstract contract AcknowledgementSignature is EIP712 {
     mapping(address => TrustedForwarder) private acknowledgementForwarders;
     mapping(address => uint256) public nonces;
 
-    event SignatureAcknowledged(address indexed owner);
+    event AcknowledgementEvent(address indexed owner, bool indexed isSponsored);
 
     constructor() EIP712("AcknowledgementOfRegistry", "1") {}
 
@@ -46,17 +46,23 @@ abstract contract AcknowledgementSignature is EIP712 {
         // sets trusted forwarder and
         acknowledgementForwarders[owner] = TrustedForwarder({
             trustedForwarder: msg.sender,
-            startTime: block.timestamp + 1 minutes,
+            startTime: _getStartTime(),
             expirey: _getDeadline()
         });
 
-        emit SignatureAcknowledged(owner);
+        if (owner == msg.sender) {
+            emit AcknowledgementEvent(owner, false);
+        } else {
+            emit AcknowledgementEvent(owner, true);
+        }
     }
 
-    // function generateHashStruct(address forwarder) external view returns (bytes32 hashStruct, uint256 deadline) {
-    //     uint256 deadline = _getDeadline();
-    //     bytes32 hashStruct = keccak256(abi.encode(ACKNOWLEDGEMENT_TYPEHASH, msg.sender, forwarder, deadline));
-    // }
+    function generateHashStruct(address forwarder) external view returns (bytes32 hashStruct, uint256 deadline) {
+        uint256 deadline = _getDeadline();
+        bytes32 hashStruct = keccak256(
+            abi.encode(ACKNOWLEDGEMENT_TYPEHASH, msg.sender, forwarder, nonces[msg.sender] + 1, deadline)
+        );
+    }
 
     function getDeadline() external view returns (uint256) {
         return acknowledgementForwarders[msg.sender].expirey;
@@ -66,12 +72,20 @@ abstract contract AcknowledgementSignature is EIP712 {
         return acknowledgementForwarders[msg.sender].trustedForwarder;
     }
 
+    function getStartTime() external view returns (uint256) {
+        return acknowledgementForwarders[msg.sender].startTime;
+    }
+
     function getDeadline(address owner) external view returns (uint256) {
         return acknowledgementForwarders[owner].expirey;
     }
 
     function getTrustedForwarder(address owner) public view returns (address) {
         return acknowledgementForwarders[owner].trustedForwarder;
+    }
+
+    function getStartTime(address owner) external view returns (uint256) {
+        return acknowledgementForwarders[owner].startTime;
     }
 
     function _getDeadline() internal view returns (uint256) {
