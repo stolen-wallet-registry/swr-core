@@ -6,8 +6,8 @@
 [default]
 # Sets the concrete solc version to use
 # This overrides the `auto_detect_solc` value
-# solc_version = '0.8.14'
-auto_detect_solc = true
+solc_version = '0.8.15'
+# auto_detect_solc = true
 src = 'src'
 out = 'out'
 libs = ["node_modules", "lib"]

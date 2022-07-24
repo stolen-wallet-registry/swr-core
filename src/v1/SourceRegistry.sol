@@ -1,9 +1,9 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.14;
+pragma solidity ^0.8.15;
 
-import {IConnextHandler} from "@connext/nxtp-contracts/contracts/contracts/core/connext/interfaces/IConnextHandler.sol";
-import {ICallback} from "@connext/nxtp-contracts/contracts/contracts/core/promise/interfaces/ICallback.sol";
-import {CallParams, XCallArgs} from "@connext/nxtp-contracts/contracts/contracts/core/connext/libraries/LibConnextStorage.sol";
+import {IConnextHandler} from "@connext/nxtp-contracts/contracts/core/connext/interfaces/IConnextHandler.sol";
+import {ICallback} from "@connext/nxtp-contracts/contracts/core/promise/interfaces/ICallback.sol";
+import {CallParams, XCallArgs} from "@connext/nxtp-contracts/contracts/core/connext/libraries/LibConnextStorage.sol";
 
 import {PriceFeedConsumer} from "@helpers/PriceConsumerV3.sol";
 
@@ -62,22 +62,24 @@ contract SourceRegistry is ICallback {
         bytes memory callData = abi.encodeWithSelector(SELECTOR, msg.sender);
 
         CallParams memory callParams = CallParams({
-            to: OPTIMISM_ADDRESS,
-            callData: callData,
+            to: OPTIMISM_ADDRESS, // The address you are sending funds (and potentially data) to
+            callData: callData, // The data to execute on the receiving chain. If no crosschain call is needed, then leave empty.
             originDomain: ORIGIN_DOMAIN, // nomad domain id
             destinationDomain: DESTINATION_DOMAIN, // nomad domain id
+            agent: msg.sender, // An address who can execute txs on behalf of `to`, in addition to allowing relayers
             recovery: msg.sender, // fallback address to send funds to if execution fails on destination side
             callback: address(this), // this contract implements the callback
             callbackFee: 0, // fee paid to relayers; relayers don't take any fees on testnet
             forceSlow: false, // option to force Nomad slow path (~30 mins) instead of paying 0.05% fee
-            receiveLocal: true // option to receive the local Nomad-flavored asset instead of the adopted asset
+            receiveLocal: true, // option to receive the local Nomad-flavored asset instead of the adopted asset
+            relayerFee: 0, // The amount of relayer fee the tx called xcall with
+            slippageTol: 9995 // Max bps of original due to slippage (i.e. would be 9995 to tolerate .05% slippage)
         });
 
         XCallArgs memory xcallArgs = XCallArgs({
             params: callParams,
             transactingAssetId: asset,
-            amount: 0, // no amount sent with this calldata-only xcall
-            relayerFee: 0 // fee paid to relayers; relayers don't take any fees on testnet
+            amount: 0 // no amount sent with this calldata-only xcall
         });
 
         connext.xcall(xcallArgs);

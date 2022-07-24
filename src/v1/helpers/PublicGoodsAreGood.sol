@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.14;
+pragma solidity ^0.8.15;
 
 abstract contract ENS {
     function resolver(bytes32 node) public view virtual returns (ENSResolver);

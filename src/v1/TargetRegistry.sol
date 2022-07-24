@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.14;
+pragma solidity ^0.8.15;
 
-import {IExecutor} from "@connext/nxtp-contracts/contracts/contracts/core/connext/interfaces/IExecutor.sol";
-import {IConnextHandler} from "@connext/nxtp-contracts/contracts/contracts/core/connext/interfaces/IConnextHandler.sol";
+import {IExecutor} from "@connext/nxtp-contracts/contracts/core/connext/interfaces/IExecutor.sol";
+import {IConnextHandler} from "@connext/nxtp-contracts/contracts/core/connext/interfaces/IConnextHandler.sol";
 
 import {IStolenWalletRegistry} from "./StolenWalletRegistry.sol";
 import {PriceFeedConsumer} from "@helpers/PriceConsumerV3.sol";

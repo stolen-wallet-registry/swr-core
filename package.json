@@ -54,6 +54,7 @@
   "dependencies": {
     "@chainlink/contracts": "^0.4.1",
     "@connext/nxtp-contracts": "^0.2.0-beta.17",
+    "@openzeppelin/contracts": "^4.7.1",
     "@openzeppelin/contracts-upgradeable": "^4.7.1"
   }
 }
