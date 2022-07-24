@@ -17,7 +17,6 @@ fuzz_runs = 1_000
 remappings = [
   "@std=lib/forge-std/src/",
   "@chainlink/=lib/chainlink-brownie-contracts/",
-  "@openzeppelin/contracts-upgradeable/=lib/openzeppelin-contracts-upgradeable/contracts",
   "@openzeppelin/contracts=lib/openzeppelin-contracts/contracts",
   "@nxtp/=lib/nxtp/packages/deployments/contracts/contracts/",
   "@helpers/=src/v1/helpers/",

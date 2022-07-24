@@ -31,9 +31,7 @@ abis/*.json
 
 typechain/**/*.ts
 !typechain/common.ts
-!typechain/draft-EIP712.ts
-!typechain/EIP712Base.ts
-!typechain/PriceConsumerV3.ts
+!typechain/PriceFeedConsumer.ts
 !typechain/PublicGoodsAreGood.ts
 !typechain/AcknowledgementSignature.ts
 !typechain/RegistrationSignature.ts
@@ -41,6 +39,7 @@ typechain/**/*.ts
 !typechain/StolenWalletNFT.ts
 !typechain/StolenWalletRegistry.ts
 !typechain/TargetRegistry.ts
+!typechain/factories/PriceFeedConsumer__factory.ts
 !typechain/factories/PublicGoodsAreGood__factory.ts
 !typechain/factories/AcknowledgementSignature__factory.ts
 !typechain/factories/RegistrationSignature__factory.ts
