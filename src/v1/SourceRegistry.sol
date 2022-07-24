@@ -1,9 +1,9 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.14;
 
-import {IConnextHandler} from "@nxtp/core/connext/interfaces/IConnextHandler.sol";
-import {ICallback} from "@nxtp/core/promise/interfaces/ICallback.sol";
-import {CallParams, XCallArgs} from "@nxtp/core/connext/libraries/LibConnextStorage.sol";
+import {IConnextHandler} from "@connext/nxtp/packages/deployments/contracts/contracts/core/connext/interfaces/IConnextHandler.sol";
+import {ICallback} from "@connext/nxtp/packages/deployments/contracts/contracts/core/promise/interfaces/ICallback.sol";
+import {CallParams, XCallArgs} from "@connext/nxtp/packages/deployments/contracts/contracts/core/connext/libraries/LibConnextStorage.sol";
 
 import {PriceFeedConsumer} from "@helpers/PriceConsumerV3.sol";
 
