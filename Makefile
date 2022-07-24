@@ -25,11 +25,17 @@ build  :; forge build
 # chmod scripts
 scripts :; chmod +x ./scripts/*
 
+# security
+slither :; slither ./src
+
+# prettier
+format :; prettier --write src/**/*.sol && prettier --write src/*.sol
+
 # Tests
 test :; forge clean && forge test --optimize --optimizer-runs 1000000 -v # --ffi # enable if you need the `ffi` cheat code on HEVM
 
-# Lints
-lint :; prettier --write src/**/*.sol && prettier --write src/*.sol
+# solhint should be installed globally
+lint :; solhint src/**/*.sol && solhint src/*.sol
 
 # Generate Gas Snapshots
 snapshot :; forge clean && forge snapshot
