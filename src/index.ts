@@ -1,19 +1,19 @@
-export { default as PublicGoodsAreGoodAbi } from "../abis/PublicGoodsAreGood.abi.json"
-export { default as AcknowledgementSignatureAbi } from "../abis/AcknowledgementSignature.abi.json"
-export { default as RegistrationSignatureAbi } from "../abis/RegistrationSignature.abi.json"
-export { default as SourceRegistryAbi } from "../abis/SourceRegistry.abi.json"
-export { default as StolenWalletNFTAbi } from "../abis/StolenWalletNFT.abi.json"
-export { default as StolenWalletRegistryAbi } from "../abis/StolenWalletRegistry.abi.json"
-export { default as TargetRegistryAbi } from "../abis/TargetRegistry.abi.json"
+export { default as PublicGoodsAreGoodAbi } from "../abis/PublicGoodsAreGood.json"
+export { default as AcknowledgementSignatureAbi } from "../abis/AcknowledgementSignature.json"
+export { default as RegistrationSignatureAbi } from "../abis/RegistrationSignature.json"
+export { default as SourceRegistryAbi } from "../abis/SourceRegistry.json"
+export { default as StolenWalletNFTAbi } from "../abis/StolenWalletNFT.json"
+export { default as StolenWalletRegistryAbi } from "../abis/StolenWalletRegistry.json"
+export { default as TargetRegistryAbi } from "../abis/TargetRegistry.json"
 
-// export { draft-EIP712 } from '../types/ethers-contracts/'
-// export { EIP712Base } from '../types/ethers-contracts/'
-// export { PriceConsumerV3 } from '../types/ethers-contracts/'
-// export { StaticTranslations } from '../types/ethers-contracts/'
-export { PublicGoodsAreGood } from "../types/ethers-contracts/PublicGoodsAreGood.sol/PublicGoodsAreGood"
-export { AcknowledgementSignature } from "../types/ethers-contracts/AcknowledgementSignature.sol/AcknowledgementSignature"
-export { RegistrationSignature } from "../types/ethers-contracts/RegistrationSignature.sol/RegistrationSignature"
-export { SourceRegistry } from "../types/ethers-contracts/SourceRegistry.sol/SourceRegistry"
-export { StolenWalletNFT } from "../types/ethers-contracts/StolenWalletNFT.sol/StolenWalletNFT"
-export { StolenWalletRegistry } from "../types/ethers-contracts/StolenWalletRegistry.sol/StolenWalletRegistry"
-export { TargetRegistry } from "../types/ethers-contracts/TargetRegistry.sol/TargetRegistry"
+// export { draft-EIP712 } from '../typechain/ethers-contracts/'
+// export { EIP712Base } from '../typechain/ethers-contracts/'
+// export { PriceConsumerV3 } from '../typechain/ethers-contracts/'
+// export { StaticTranslations } from '../typechain/ethers-contracts/'
+export { PublicGoodsAreGood__factory as PublicGoodsAreGoodFactory } from "../typechain/factories/PublicGoodsAreGood__factory"
+export { AcknowledgementSignature__factory as AcknowledgementSignatureFactory } from "../typechain/factories/AcknowledgementSignature__factory"
+export { RegistrationSignature__factory as RegistrationSignatureFactory } from "../typechain/factories/RegistrationSignature__factory"
+export { SourceRegistry__factory as SourceRegistryFactory } from "../typechain/factories/SourceRegistry__factory"
+export { StolenWalletNFT__factory as StolenWalletNFTFactory } from "../typechain/factories/StolenWalletNFT__factory"
+export { StolenWalletRegistry__factory as StolenWalletRegistryFactory } from "../typechain/factories/StolenWalletRegistry__factory"
+export { TargetRegistry__factory as TargetRegistryFactory } from "../typechain/factories/TargetRegistry__factory"

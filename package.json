@@ -1,15 +1,25 @@
 {
-  "name": "femplate",
+  "name": "@wallet-hygiene/swr-contracts",
   "description": "Robust Template for Foundry Projects",
   "author": "Andreas Bigger <andreas@nascent.xyz>",
   "license": "AGPL-3.0-only",
-  "version": "1.5.0",
+  "version": "0.0.3",
+  "main": "dist/src/index.ts",
+  "types": "dist/src/index.d.ts",
+  "directories": {
+    "lib": "lib"
+  },
   "files": [
     "src/**/*.sol"
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/abigger87/femplate.git"
+    "url": "git@github.com:stolen-wallet-registry/swr-core.git"
+  },
+  "private": false,
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   },
   "devDependencies": {
     "@ethersproject/abi": "^5.6.4",
@@ -28,11 +38,17 @@
     "test": "make test",
     "snapshot": "make snapshot",
     "lint": "make lint",
-    "build": "yarn build:clean && yarn build:sol && yarn copy:abis && yarn build:ts",
-    "build:clean": "make clean && rm -rf dist abis && shx mkdir dist",
+    "npm:publish": "npm run build && npm publish --access public --scope=@wallet-hygiene",
+    "build": "yarn build:clean && yarn build:sol && yarn copy:abis && yarn build:typechain && yarn build:ts",
+    "build:clean": "make clean && rm -rf dist abis typechain && shx mkdir dist",
     "build:sol": "forge b --force --extra-output-files abi --optimizer-runs 200",
-    "build:typechain": "shx mkdir dist/typechain && typechain --target ethers-v5 out/**/*.abi.json --out-dir dist/typechain/",
-    "build:ts": "npx tsc --build tsconfig.build.json",
-    "copy:abis": "shx mkdir abis && shx cp out/**.sol/*.abi.json abis/"
-  }
+    "rename:abis": "shx ls abis/**/*.abi.json | while read a; do n=$(echo $a | sed -e 's/\\(.abi\\)//g'); mv $a $n; done;",
+    "copy:abis": "shx mkdir abis && shx cp out/**.sol/*.abi.json abis && yarn rename:abis",
+    "build:typechain": "typechain --target ethers-v5 abis/**.json --out-dir typechain",
+    "build:ts": "npx tsc --build tsconfig.build.json"
+  },
+  "bugs": {
+    "url": "https://github.com/stolen-wallet-registry/swr-core/issues"
+  },
+  "homepage": "https://github.com/stolen-wallet-registry/swr-core#readme"
 }

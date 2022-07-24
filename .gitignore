@@ -13,6 +13,38 @@ node_modules/
 flattened.txt
 
 # Build ignores
-types/
-dist/
-abis/
+dist
+*.tsbuildinfo
+
+#Hardhat files
+cache
+artifacts
+
+abis/*.json
+!abis/PublicGoodsAreGood.abi.json
+!abis/AcknowledgementSignature.abi.json
+!abis/RegistrationSignature.abi.json
+!abis/SourceRegistry.abi.json
+!abis/StolenWalletNFT.abi.json
+!abis/StolenWalletRegistry.abi.json
+!abis/TargetRegistry.abi.json
+
+typechain/**/*.ts
+!typechain/common.ts
+!typechain/draft-EIP712.ts
+!typechain/EIP712Base.ts
+!typechain/PriceConsumerV3.ts
+!typechain/PublicGoodsAreGood.ts
+!typechain/AcknowledgementSignature.ts
+!typechain/RegistrationSignature.ts
+!typechain/SourceRegistry.ts
+!typechain/StolenWalletNFT.ts
+!typechain/StolenWalletRegistry.ts
+!typechain/TargetRegistry.ts
+!typechain/factories/PublicGoodsAreGood__factory.ts
+!typechain/factories/AcknowledgementSignature__factory.ts
+!typechain/factories/RegistrationSignature__factory.ts
+!typechain/factories/SourceRegistry__factory.ts
+!typechain/factories/StolenWalletNFT__factory.ts
+!typechain/factories/StolenWalletRegistry__factory.ts
+!typechain/factories/TargetRegistry__factory.ts
