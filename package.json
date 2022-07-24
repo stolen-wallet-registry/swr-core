@@ -53,6 +53,7 @@
   "homepage": "https://github.com/stolen-wallet-registry/swr-core#readme",
   "dependencies": {
     "@chainlink/contracts": "^0.4.1",
-    "@connext/nxtp": "connext/nxtp"
+    "@connext/nxtp": "connext/nxtp",
+    "@openzeppelin/contracts-upgradeable": "^4.7.1"
   }
 }
