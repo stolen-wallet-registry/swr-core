@@ -14,7 +14,7 @@ solc:; nix-env -f https://github.com/dapphub/dapptools/archive/master.tar.gz -iA
 clean  :; forge clean
 
 # Install the Modules
-install :; forge install smartcontractkit/chainlink-brownie-contracts && forge install openzeppelin/openzeppelin-contracts && forge install foundry-rs/forge-std
+install :; forge install openzeppelin/openzeppelin-contracts && forge install foundry-rs/forge-std
 
 # Update Dependencies
 update:; forge update
