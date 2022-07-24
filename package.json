@@ -3,7 +3,7 @@
   "description": "Robust Template for Foundry Projects",
   "author": "Andreas Bigger <andreas@nascent.xyz>",
   "license": "AGPL-3.0-only",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "main": "dist/src/index.ts",
   "types": "dist/src/index.d.ts",
   "directories": {
