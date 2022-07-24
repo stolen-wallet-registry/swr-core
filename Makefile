@@ -8,13 +8,13 @@ all: clean remove install update build
 remove :; rm -rf .gitmodules && rm -rf .git/modules/* && rm -rf lib && touch .gitmodules && git add . && git commit -m "modules"
 
 # Install proper solc version.
-solc:; nix-env -f https://github.com/dapphub/dapptools/archive/master.tar.gz -iA solc-static-versions.solc_0_8_13
+solc:; nix-env -f https://github.com/dapphub/dapptools/archive/master.tar.gz -iA solc-static-versions.solc_0_8_12
 
 # Clean the repo
 clean  :; forge clean
 
 # Install the Modules
-install :; forge install smartcontractkit/chainlink-brownie-contracts && forge install connext/nxtp && forge install openzeppelin/openzeppelin-contracts && forge install foundry-rs/forge-std
+install :; forge install smartcontractkit/chainlink-brownie-contracts && forge install openzeppelin/openzeppelin-contracts && forge install foundry-rs/forge-std
 
 # Update Dependencies
 update:; forge update

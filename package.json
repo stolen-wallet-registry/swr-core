@@ -50,5 +50,9 @@
   "bugs": {
     "url": "https://github.com/stolen-wallet-registry/swr-core/issues"
   },
-  "homepage": "https://github.com/stolen-wallet-registry/swr-core#readme"
+  "homepage": "https://github.com/stolen-wallet-registry/swr-core#readme",
+  "dependencies": {
+    "@chainlink/contracts": "^0.4.1",
+    "@connext/nxtp": "connext/nxtp"
+  }
 }

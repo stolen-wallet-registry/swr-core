@@ -1,10 +1,8 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.14;
 
-import "forge-std/Script.sol";
-import "../v1/StolenWalletRegistry.sol";
-
-import "@chainlink/contracts/src/v0.7/tests/MockV3Aggregator.sol";
+import "@std/Script.sol";
+import "../src/v1/StolenWalletRegistry.sol";
 
 contract Deploy is Script {
     function run() external {

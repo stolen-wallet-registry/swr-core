@@ -6,23 +6,27 @@
 [default]
 # Sets the concrete solc version to use
 # This overrides the `auto_detect_solc` value
-solc_version = '0.8.14'
-auto_detect_solc = false
+# solc_version = '0.8.14'
+auto_detect_solc = true
+src = 'src'
+out = 'out'
+libs = ["node_modules", "lib"]
+gas_reports = ["*"]
 # Increase optimizer_runs
 optimizer = true
 optimizer_runs = 1_000
 # Fuzz more than the default 256
 fuzz_runs = 1_000
 # Configure remappings
+
 remappings = [
   "@std=lib/forge-std/src/",
-  "@chainlink/=lib/chainlink-brownie-contracts/",
-  "@openzeppelin/contracts=lib/openzeppelin-contracts/contracts",
-  "@nxtp/=lib/nxtp/packages/deployments/contracts/contracts/",
+  "@chainlink/=node_modules/@chainlink/",
+  "@openzeppelin/=node_modules/@openzeppelin/",
+  "@nxtp/=node_modules/@connext/nxtp/packages/deployments/contracts/contracts/",
   "@helpers/=src/v1/helpers/",
   "@libraries/=src/v1/libraries/"
 ]
-libs = ["node_modules", "lib"]
 
 # Extreme Fuzzing CI Profile :P
 [ci]
