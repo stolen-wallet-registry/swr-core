@@ -3,14 +3,15 @@
   "description": "Robust Template for Foundry Projects",
   "author": "Andreas Bigger <andreas@nascent.xyz>",
   "license": "AGPL-3.0-only",
-  "version": "0.0.4",
+  "version": "0.0.6",
   "main": "dist/src/index.ts",
   "types": "dist/src/index.d.ts",
   "directories": {
     "lib": "lib"
   },
   "files": [
-    "src/**/*.sol"
+    "src/**/*.ts",
+    "dist"
   ],
   "repository": {
     "type": "git",
@@ -38,7 +39,7 @@
     "test": "make test",
     "snapshot": "make snapshot",
     "lint": "make lint",
-    "npm:publish": "npm run build && npm publish --access public --scope=@wallet-hygiene",
+    "npm:publish": "yarn build && npm publish --access public --scope=@wallet-hygiene",
     "build": "yarn build:clean && yarn build:sol && yarn copy:abis && yarn build:typechain && yarn build:ts",
     "build:clean": "make clean && rm -rf dist abis typechain && shx mkdir dist",
     "build:sol": "forge b --force --extra-output-files abi --optimizer-runs 200",

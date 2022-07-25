@@ -4,6 +4,8 @@ pragma solidity ^0.8.15;
 import "./helpers/PriceConsumerV3.sol";
 import "./helpers/PublicGoodsAreGood.sol";
 
+import "./signatures/SwrSignatures.sol";
+
 interface IStolenWalletRegistry {
     function myWalletWasStolen() external returns (bool);
 
@@ -16,7 +18,7 @@ interface IStolenWalletRegistry {
 /// @notice funds from fees routed from other chains go to the address registered at protocolguild.eth
 /// @notice funds from fees on Optimism go to the Optimism retroactive public goods fund.
 /// @custom:experimental This is an experimental unaudited contract.
-contract StolenWalletRegistry {
+contract StolenWalletRegistry is SwrSignatures {
     PriceFeedConsumer private priceConsumer;
 
     uint256 public publicGoodsRegistrationFee = 5 * 1e18;
@@ -29,7 +31,7 @@ contract StolenWalletRegistry {
 
     event RegisteredAddressEvent(address registeredWallet, bool gasless);
 
-    constructor(address _priceFeed) {
+    constructor(address _priceFeed) SwrSignatures() {
         priceConsumer = PriceFeedConsumer(_priceFeed);
     }
 

@@ -16,14 +16,14 @@ flattened.txt
 dist
 *.tsbuildinfo
 
-#Hardhat files
+broadcast
 cache
 artifacts
 
 abis/*.json
 !abis/PublicGoodsAreGood.abi.json
-!abis/AcknowledgementSignature.abi.json
-!abis/RegistrationSignature.abi.json
+!abis/EIP712Acknowledgement.abi.json
+!abis/EIP712Registration.abi.json
 !abis/SourceRegistry.abi.json
 !abis/StolenWalletNFT.abi.json
 !abis/StolenWalletRegistry.abi.json
@@ -33,16 +33,16 @@ typechain/**/*.ts
 !typechain/common.ts
 !typechain/PriceFeedConsumer.ts
 !typechain/PublicGoodsAreGood.ts
-!typechain/AcknowledgementSignature.ts
-!typechain/RegistrationSignature.ts
+!typechain/EIP712Acknowledgement.ts
+!typechain/EIP712Registration.ts
 !typechain/SourceRegistry.ts
 !typechain/StolenWalletNFT.ts
 !typechain/StolenWalletRegistry.ts
 !typechain/TargetRegistry.ts
 !typechain/factories/PriceFeedConsumer__factory.ts
 !typechain/factories/PublicGoodsAreGood__factory.ts
-!typechain/factories/AcknowledgementSignature__factory.ts
-!typechain/factories/RegistrationSignature__factory.ts
+!typechain/factories/EIP712Acknowledgement__factory.ts
+!typechain/factories/EIP712Registration__factory.ts
 !typechain/factories/SourceRegistry__factory.ts
 !typechain/factories/StolenWalletNFT__factory.ts
 !typechain/factories/StolenWalletRegistry__factory.ts

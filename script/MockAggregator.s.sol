@@ -4,7 +4,7 @@ pragma solidity ^0.8.15;
 import "@std/Script.sol";
 import "./chainlink/MockV3Aggregator.sol";
 
-contract Deploy is Script {
+contract DeployMockAggregator is Script {
     function run() external {
         vm.startBroadcast();
 

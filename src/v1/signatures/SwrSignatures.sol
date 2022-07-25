@@ -1,13 +1,17 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.15;
 
-import "@openzeppelin/contracts/utils/cryptography/draft-EIP712.sol";
+import "./EIP712Registration.sol";
+import "./EIP712Acknowledgement.sol";
 
 /// @author FooBar
 /// @title A simple FooBar example
-abstract contract AcknowledgementSignature is EIP712 {
+abstract contract SwrSignatures is EIP712Registration, EIP712Acknowledgement {
     error AcknowlegementExpired();
     error InvalidSigner();
+    error InvalidForwarder();
+    error SignatureExpired();
+    error ForwarderExpired();
 
     struct TrustedForwarder {
         address trustedForwarder;
@@ -16,14 +20,18 @@ abstract contract AcknowledgementSignature is EIP712 {
     }
 
     bytes32 private constant ACKNOWLEDGEMENT_TYPEHASH =
-        keccak256("Acknowledgement(address owner,address forwarder,uint256 nonce,uint256 deadline)");
+        keccak256("acknowledgementOfRegistry(address owner,address forwarder,uint256 nonce,uint256 deadline)");
+    bytes32 private constant REGISTRATION_TYPEHASH =
+        keccak256("registerWallet(address owner,address forwarder,uint256 nonce,uint256 deadline)");
 
-    mapping(address => TrustedForwarder) private acknowledgementForwarders;
+    // mapping(address => TrustedForwarder) private acknowledgementForwarders;
+    mapping(address => TrustedForwarder) private trustedForwarders;
     mapping(address => uint256) public nonces;
 
     event AcknowledgementEvent(address indexed owner, bool indexed isSponsored);
+    event RegistrationEvent(address indexed owner, bool indexed isSponsored);
 
-    constructor() EIP712("AcknowledgementOfRegistry", "1") {}
+    constructor() EIP712Registration("Registration", "4") EIP712Acknowledgement("AcknowledgementOfRegistry", "4") {}
 
     function acknowledgementOfRegistry(
         address owner,
@@ -36,7 +44,7 @@ abstract contract AcknowledgementSignature is EIP712 {
         if (deadline <= block.timestamp) revert AcknowlegementExpired();
 
         // verify signature was sent by owner
-        bytes32 digest = _hashTypedDataV4(
+        bytes32 digest = _hashTypedDataV4Acknowledgement(
             keccak256(abi.encode(ACKNOWLEDGEMENT_TYPEHASH, owner, msg.sender, nonces[owner]++, deadline))
         );
 
@@ -44,7 +52,7 @@ abstract contract AcknowledgementSignature is EIP712 {
         if (recoveredWallet == address(0) && recoveredWallet != owner) revert InvalidSigner();
 
         // sets trusted forwarder and
-        acknowledgementForwarders[owner] = TrustedForwarder({
+        trustedForwarders[owner] = TrustedForwarder({
             trustedForwarder: msg.sender,
             startTime: _getStartTime(),
             expirey: _getDeadline()
@@ -64,28 +72,62 @@ abstract contract AcknowledgementSignature is EIP712 {
         );
     }
 
+    function walletRegistration(
+        address owner,
+        uint256 deadline,
+        uint8 v,
+        bytes32 r,
+        bytes32 s
+    ) external virtual {
+        if (deadline <= block.timestamp) revert SignatureExpired();
+
+        bytes32 digest = _hashTypedDataV4Registration(
+            keccak256(abi.encode(REGISTRATION_TYPEHASH, owner, msg.sender, nonces[owner]++, deadline))
+        );
+
+        address recoveredWallet = ecrecover(digest, v, r, s);
+        if (recoveredWallet == address(0) && recoveredWallet != owner) revert InvalidSigner();
+
+        TrustedForwarder storage forwarder = trustedForwarders[owner];
+
+        if (forwarder.trustedForwarder != msg.sender) revert InvalidForwarder();
+
+        if (forwarder.expirey < block.timestamp) {
+            delete trustedForwarders[owner];
+            revert ForwarderExpired();
+        }
+
+        delete trustedForwarders[owner];
+
+        if (owner == msg.sender) {
+            emit RegistrationEvent(owner, false);
+        } else {
+            emit RegistrationEvent(owner, true);
+        }
+    }
+
     function getDeadline() external view returns (uint256) {
-        return acknowledgementForwarders[msg.sender].expirey;
+        return trustedForwarders[msg.sender].expirey;
     }
 
     function getTrustedForwarder() public view returns (address) {
-        return acknowledgementForwarders[msg.sender].trustedForwarder;
+        return trustedForwarders[msg.sender].trustedForwarder;
     }
 
     function getStartTime() external view returns (uint256) {
-        return acknowledgementForwarders[msg.sender].startTime;
+        return trustedForwarders[msg.sender].startTime;
     }
 
     function getDeadline(address owner) external view returns (uint256) {
-        return acknowledgementForwarders[owner].expirey;
+        return trustedForwarders[owner].expirey;
     }
 
     function getTrustedForwarder(address owner) public view returns (address) {
-        return acknowledgementForwarders[owner].trustedForwarder;
+        return trustedForwarders[owner].trustedForwarder;
     }
 
     function getStartTime(address owner) external view returns (uint256) {
-        return acknowledgementForwarders[owner].startTime;
+        return trustedForwarders[owner].startTime;
     }
 
     function _getDeadline() internal view returns (uint256) {

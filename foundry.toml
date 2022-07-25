@@ -22,7 +22,9 @@ fuzz_runs = 1_000
 remappings = [
   "@std=lib/forge-std/src/",
   "@helpers/=src/v1/helpers/",
-  "@libraries/=src/v1/libraries/"
+  "@libraries/=src/v1/libraries/",
+  "@openzeppelin/contracts-upgradeable/=lib/openzeppelin-contracts-upgradeable/contracts/",
+  "@openzeppelin/contracts/=lib/openzeppelin-contracts/contracts/",
 ]
 
 # Extreme Fuzzing CI Profile :P

@@ -1,4 +1,5 @@
 // SPDX-License-Identifier: MIT
+// OpenZeppelin Contracts v4.4.1 (utils/cryptography/draft-EIP712.sol)
 pragma solidity ^0.8.15;
 
 import "openzeppelin-contracts/contracts/utils/cryptography/ECDSA.sol";
@@ -10,7 +11,7 @@ import "openzeppelin-contracts/contracts/utils/cryptography/ECDSA.sol";
  * thus this contract does not implement the encoding itself. Protocols need to implement the type-specific encoding
  * they need in their contracts using a combination of `abi.encode` and `keccak256`.
  *
- * This contract implements the EIP 712 domain separator ({_domainSeparatorV4}) that is used as part of the encoding
+ * This contract implements the EIP 712 domain separator ({_domainSeparatorV4Acknowledgement}) that is used as part of the encoding
  * scheme, and the final step of the encoding to obtain the message digest that is then signed via ECDSA
  * ({_hashTypedDataV4}).
  *
@@ -22,14 +23,20 @@ import "openzeppelin-contracts/contracts/utils/cryptography/ECDSA.sol";
  *
  * _Available since v3.4._
  */
-abstract contract EIP712Base {
-    bytes32 private immutable _CACHED_DOMAIN_SEPARATOR;
-    uint256 private immutable _CACHED_CHAIN_ID;
-    address private immutable _CACHED_THIS;
+abstract contract EIP712Acknowledgement {
+    /* solhint-disable var-name-mixedcase */
+    // Cache the domain separator as an immutable value, but also store the chain id that it corresponds to, in order to
+    // invalidate the cached domain separator if the chain id changes.
+    bytes32 private immutable _CACHED_DOMAIN_SEPARATOR__ACKNOWLEDGEMENT;
+    uint256 private immutable _CACHED_CHAIN_ID__ACKNOWLEDGEMENT;
+    address private immutable _CACHED_THIS__ACKNOWLEDGEMENT;
 
-    bytes32 private immutable _HASHED_NAME;
-    bytes32 private immutable _HASHED_VERSION;
-    bytes32 private immutable _TYPE_HASH;
+    bytes32 private immutable _HASHED_NAME__ACKNOWLEDGEMENT;
+    bytes32 private immutable _HASHED_VERSION__ACKNOWLEDGEMENT;
+    bytes32 private immutable _TYPE_HASH__ACKNOWLEDGEMENT;
+    bytes32 constant _SALT__ACKNOWLEDGEMENT = 0xe7e338c8a96606d405ae49875289174c38181bda641043e953b12964ad115f49;
+
+    /* solhint-enable var-name-mixedcase */
 
     /**
      * @dev Initializes the domain separator and parameter caches.
@@ -47,33 +54,45 @@ abstract contract EIP712Base {
         bytes32 hashedName = keccak256(bytes(name));
         bytes32 hashedVersion = keccak256(bytes(version));
         bytes32 typeHash = keccak256(
-            "EIP712Domain(string name,string version,uint256 chainId,address verifyingContract)"
+            "EIP712Domain(string name,string version,uint256 chainId,address verifyingContract, bytes32 salt)"
         );
-        _HASHED_NAME = hashedName;
-        _HASHED_VERSION = hashedVersion;
-        _CACHED_CHAIN_ID = block.chainid;
-        _CACHED_DOMAIN_SEPARATOR = _buildDomainSeparator(typeHash, hashedName, hashedVersion);
-        _CACHED_THIS = address(this);
-        _TYPE_HASH = typeHash;
+        _HASHED_NAME__ACKNOWLEDGEMENT = hashedName;
+        _HASHED_VERSION__ACKNOWLEDGEMENT = hashedVersion;
+        _CACHED_CHAIN_ID__ACKNOWLEDGEMENT = block.chainid;
+        _CACHED_DOMAIN_SEPARATOR__ACKNOWLEDGEMENT = _buildDomainSeparatorAcknowledgement(
+            typeHash,
+            hashedName,
+            hashedVersion
+        );
+        _CACHED_THIS__ACKNOWLEDGEMENT = address(this);
+        _TYPE_HASH__ACKNOWLEDGEMENT = typeHash;
     }
 
     /**
      * @dev Returns the domain separator for the current chain.
      */
-    function _domainSeparatorV4() internal view returns (bytes32) {
-        if (address(this) == _CACHED_THIS && block.chainid == _CACHED_CHAIN_ID) {
-            return _CACHED_DOMAIN_SEPARATOR;
+    function _domainSeparatorV4Acknowledgement() internal view returns (bytes32) {
+        if (address(this) == _CACHED_THIS__ACKNOWLEDGEMENT && block.chainid == _CACHED_CHAIN_ID__ACKNOWLEDGEMENT) {
+            return _CACHED_DOMAIN_SEPARATOR__ACKNOWLEDGEMENT;
         } else {
-            return _buildDomainSeparator(_TYPE_HASH, _HASHED_NAME, _HASHED_VERSION);
+            return
+                _buildDomainSeparatorAcknowledgement(
+                    _TYPE_HASH__ACKNOWLEDGEMENT,
+                    _HASHED_NAME__ACKNOWLEDGEMENT,
+                    _HASHED_VERSION__ACKNOWLEDGEMENT
+                );
         }
     }
 
-    function _buildDomainSeparator(
+    function _buildDomainSeparatorAcknowledgement(
         bytes32 typeHash,
         bytes32 nameHash,
         bytes32 versionHash
     ) private view returns (bytes32) {
-        return keccak256(abi.encode(typeHash, nameHash, versionHash, block.chainid, address(this)));
+        return
+            keccak256(
+                abi.encode(typeHash, nameHash, versionHash, block.chainid, address(this), _SALT__ACKNOWLEDGEMENT)
+            );
     }
 
     /**
@@ -91,7 +110,7 @@ abstract contract EIP712Base {
      * address signer = ECDSA.recover(digest, signature);
      * ```
      */
-    function _hashTypedDataV4(bytes32 structHash) internal view virtual returns (bytes32) {
-        return ECDSA.toTypedDataHash(_domainSeparatorV4(), structHash);
+    function _hashTypedDataV4Acknowledgement(bytes32 structHash) internal view virtual returns (bytes32) {
+        return ECDSA.toTypedDataHash(_domainSeparatorV4Acknowledgement(), structHash);
     }
 }
