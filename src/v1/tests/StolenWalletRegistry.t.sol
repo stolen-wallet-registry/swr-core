@@ -118,15 +118,43 @@ contract StolenWalletRegistryTest is Test {
 
     // function testWalletRegistration() public {}
 
-    // function testGetDeadline() public {}
+    // function testGetDeadline(uint8 registrationTimestamp) public {
+    //     // struct TrustedForwarder {
+    //     //     address trustedForwarder;
+    //     //     uint256 startTime;
+    //     //     uint256 expirey;
+    //     // }
+    //     uint256 expirey = uint256(registrationTimestamp + stolenWalletRegistry.DEADLINE_MINUTES());
 
-    // function testGetTrustedForwarder() public {}
+    //     stdstore
+    //         .target(address(stolenWalletRegistry))
+    //         .sig("trustedForwarders(address)")
+    //         .with_key(alice)
+    //         .depth(2)
+    //         .checked_write(expirey);
 
-    // function testGetStartTime() public {}
+    //     uint256 slot = stdstore
+    //         .target(address(stolenWalletRegistry))
+    //         .sig(stolenWalletRegistry.trustedForwarders.selector)
+    //         .with_key(alice)
+    //         .find();
 
-    // function testGetDeadline(address owner) public {}
+    //     uint256 data = vm.load(address(stolenWalletRegistry), bytes32(slot));
 
-    // function testGetTrustedForwarder(address owner) public {}
+    //     assertEq(stolenWalletRegistry.getDeadline(alice), data);
+    //     vm.prank(alice);
+    //     assertEq(stolenWalletRegistry.getDeadline(), data);
+    //     vm.prank(charlie);
+    //     assertEq(stolenWalletRegistry.getDeadline(), 0);
+    // }
 
-    // function testGetStartTime(address owner) public {}
+    function testGetTrustedForwarder() public {}
+
+    function testGetStartTime() public {}
+
+    function testGetDeadline(address owner) public {}
+
+    function testGetTrustedForwarder(address owner) public {}
+
+    function testGetStartTime(address owner) public {}
 }

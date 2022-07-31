@@ -20,6 +20,9 @@ abstract contract SwrSignatures is EIP712Registration, EIP712Acknowledgement {
         uint256 expirey;
     }
 
+    uint8 public constant START_TIME_MINUTES = 1 minutes;
+    uint8 public constant DEADLINE_MINUTES = 4 minutes;
+
     bytes32 private constant ACKNOWLEDGEMENT_TYPEHASH =
         keccak256("acknowledgementOfRegistry(address owner,address forwarder,uint256 nonce,uint256 deadline)");
     bytes32 private constant REGISTRATION_TYPEHASH =
@@ -45,6 +48,7 @@ abstract contract SwrSignatures is EIP712Registration, EIP712Acknowledgement {
         if (deadline <= block.timestamp) revert AcknowlegementExpired();
 
         // verify signature was sent by owner
+        // TODO tx.origin can fit somewhere in here for further assurances?
         bytes32 digest = _hashTypedDataV4Acknowledgement(
             keccak256(abi.encode(ACKNOWLEDGEMENT_TYPEHASH, owner, msg.sender, nonces[owner]++, deadline))
         );
@@ -127,19 +131,15 @@ abstract contract SwrSignatures is EIP712Registration, EIP712Acknowledgement {
         return trustedForwarders[owner].expirey;
     }
 
-    function getTrustedForwarder(address owner) public view returns (address) {
-        return trustedForwarders[owner].trustedForwarder;
-    }
-
     function getStartTime(address owner) external view returns (uint256) {
         return trustedForwarders[owner].startTime;
     }
 
     function _getDeadline() internal view returns (uint256) {
-        return block.timestamp + 4 minutes;
+        return block.timestamp + DEADLINE_MINUTES;
     }
 
     function _getStartTime() internal view returns (uint256) {
-        return block.timestamp + 1 minutes;
+        return block.timestamp + START_TIME_MINUTES;
     }
 }

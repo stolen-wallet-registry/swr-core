@@ -60,7 +60,7 @@ contract PriceFeedConsumer {
      * @return latest price
      *
      */
-    function getLatestPrice() public view returns (int256) {
+    function() public view returns (int256) {
         (, int256 price, , , ) = priceFeed.latestRoundData();
         return price;
     }
