@@ -1,9 +1,8 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.15;
 
-import "./helpers/PriceConsumerV3.sol";
-import "./helpers/PublicGoodsAreGood.sol";
-
+import "@helpers/PriceConsumerV3.sol";
+import "@helpers/PublicGoodsAreGood.sol";
 import "./signatures/SwrSignatures.sol";
 
 interface IStolenWalletRegistry {
@@ -19,30 +18,29 @@ interface IStolenWalletRegistry {
 /// @notice funds from fees on Optimism go to the Optimism retroactive public goods fund.
 /// @custom:experimental This is an experimental unaudited contract.
 contract StolenWalletRegistry is SwrSignatures {
-    PriceFeedConsumer private priceConsumer;
+    PriceFeedConsumer public priceConsumer;
 
-    uint256 public publicGoodsRegistrationFee = 5 * 1e18;
+    // $5 USD per registration
+    uint256 public publicGoodsRegistrationFee = 5;
     uint256 public registeredWalletCount = 0;
 
     mapping(address => uint256) public registeredWallets;
 
-    error NotEnoughFunds(uint256 requested, uint256 received);
+    error NotEnoughFunds();
     error UserAlreadyRegistered(address wallet);
 
     event RegisteredAddressEvent(address registeredWallet, bool gasless);
+    event MsgValue(uint256 value1, uint256 value2, uint256 cost);
 
     constructor(address _priceFeed) SwrSignatures() {
         priceConsumer = PriceFeedConsumer(_priceFeed);
     }
 
     modifier checkFundsForPublicGoods() {
-        if (msg.value < (publicGoodsRegistrationFee * 1e18) / getLatestETHUSDPrice()) {
-            revert NotEnoughFunds(publicGoodsRegistrationFee, msg.value);
-        }
-
-        if (_isWalletRegistered()) {
-            revert UserAlreadyRegistered(msg.sender);
-        }
+        uint256 cost = ((publicGoodsRegistrationFee * 10**18) / getLatestETHUSDPrice());
+        emit MsgValue(getLatestETHUSDPrice(), publicGoodsRegistrationFee * 10**18, cost);
+        if (msg.value <= cost) revert NotEnoughFunds();
+        if (_isWalletRegistered()) revert UserAlreadyRegistered(msg.sender);
 
         _;
     }
@@ -55,19 +53,23 @@ contract StolenWalletRegistry is SwrSignatures {
 
         emit RegisteredAddressEvent(msg.sender, false);
 
-        fundOptimismRetroactivePublicGoods();
+        // fundOptimismRetroactivePublicGoods();
     }
 
     function isWalletRegistered(address wallet) public view returns (bool) {
         return registeredWallets[wallet] != 0 && registeredWallets[wallet] < block.timestamp;
     }
 
+    function isWalletRegistered() public view returns (bool) {
+        return _isWalletRegistered();
+    }
+
     function whenWalletWasRegisted(address wallet) public view returns (uint256) {
         return registeredWallets[wallet];
     }
 
-    function _isWalletRegistered() private view returns (bool) {
-        return registeredWallets[msg.sender] != 0 && registeredWallets[msg.sender] < block.timestamp;
+    function whenWalletWasRegisted() public view returns (uint256) {
+        return registeredWallets[msg.sender];
     }
 
     function fundProtocolGuild() internal {
@@ -80,9 +82,15 @@ contract StolenWalletRegistry is SwrSignatures {
         require(sent, "Failed to send Ether");
     }
 
-    /// @notice Explain to an end user what this does
+    function _isWalletRegistered() private view returns (bool) {
+        return registeredWallets[msg.sender] != 0 && registeredWallets[msg.sender] < block.timestamp;
+    }
+
+    /// @notice chainlink ETH/USD returns 8 decimals
+    /// division by 10 ** 8 converts the price to a divisor for $x USD of ETH
+    /// divisor is used above to calculate publicGoodsRegistrationFee as $x USD in ETH
     /// @dev Explain to a developer any extra details
     function getLatestETHUSDPrice() internal view returns (uint256) {
-        return uint256(priceConsumer.getLatestPrice()) * 1e18;
+        return uint256(priceConsumer.getLatestPrice()) / 10**8;
     }
 }

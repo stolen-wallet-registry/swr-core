@@ -3,6 +3,7 @@ pragma solidity ^0.8.15;
 
 import "./EIP712Registration.sol";
 import "./EIP712Acknowledgement.sol";
+import "forge-std/console.sol";
 
 /// @author FooBar
 /// @title A simple FooBar example
@@ -67,6 +68,10 @@ abstract contract SwrSignatures is EIP712Registration, EIP712Acknowledgement {
 
     function generateHashStruct(address forwarder) external view returns (bytes32 hashStruct, uint256 deadline) {
         uint256 deadline = _getDeadline();
+        console.log("deadline: ", deadline);
+        // bytes32 hashStruct = keccak256("2");
+
+        console.log("deadline", deadline);
         bytes32 hashStruct = keccak256(
             abi.encode(ACKNOWLEDGEMENT_TYPEHASH, msg.sender, forwarder, nonces[msg.sender] + 1, deadline)
         );

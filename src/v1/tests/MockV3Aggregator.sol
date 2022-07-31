@@ -83,6 +83,10 @@ contract MockV3Aggregator {
         );
     }
 
+    function getLatestPrice() external view returns (int256) {
+        return latestAnswer;
+    }
+
     function description() external pure returns (string memory) {
         return "v0.6/tests/MockV3Aggregator.sol";
     }

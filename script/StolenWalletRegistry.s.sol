@@ -3,7 +3,9 @@ pragma solidity ^0.8.15;
 
 import "@std/Script.sol";
 import "../src/v1/StolenWalletRegistry.sol";
-import "./chainlink/MockV3Aggregator.sol";
+import "../src/v1/tests/MockV3Aggregator.sol";
+
+import "forge-std/console.sol";
 
 contract DeployStollenWalletRegistry is Script {
     function run() external {
@@ -12,6 +14,7 @@ contract DeployStollenWalletRegistry is Script {
         vm.stopBroadcast();
 
         vm.startBroadcast();
+
         StolenWalletRegistry stolenWalletRegistry = new StolenWalletRegistry(address(mockAggregator));
         vm.stopBroadcast();
     }

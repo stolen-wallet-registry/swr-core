@@ -2,9 +2,9 @@
 pragma solidity ^0.8.15;
 
 import "@std/Script.sol";
-import "../../src/v1/helpers/PriceConsumerV3.sol";
+import "@helpers/PriceConsumerV3.sol";
 import "./HelperConfig.sol";
-import "./MockV3Aggregator.sol";
+import "../MockV3Aggregator.sol";
 
 contract DeployPriceFeedConsumer is Script, HelperConfig {
     uint8 constant DECIMALS = 18;

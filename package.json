@@ -3,16 +3,12 @@
   "description": "Robust Template for Foundry Projects",
   "author": "Andreas Bigger <andreas@nascent.xyz>",
   "license": "AGPL-3.0-only",
-  "version": "0.0.6",
-  "main": "dist/src/index.ts",
+  "version": "0.0.71",
+  "main": "dist/src/index.js",
   "types": "dist/src/index.d.ts",
   "directories": {
     "lib": "lib"
   },
-  "files": [
-    "src/**/*.ts",
-    "dist"
-  ],
   "repository": {
     "type": "git",
     "url": "git@github.com:stolen-wallet-registry/swr-core.git"
@@ -46,7 +42,8 @@
     "rename:abis": "shx ls abis/**/*.abi.json | while read a; do n=$(echo $a | sed -e 's/\\(.abi\\)//g'); mv $a $n; done;",
     "copy:abis": "shx mkdir abis && shx cp out/**.sol/*.abi.json abis && yarn rename:abis",
     "build:typechain": "typechain --target ethers-v5 abis/**.json --out-dir typechain",
-    "build:ts": "npx tsc --build tsconfig.build.json"
+    "build:ts": "npx tsc --build tsconfig.build.json",
+    "deploy:dev": "forge script script/StolenWalletRegistry.s.sol --private-key 0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80 --rpc-url http://localhost:8545  --broadcast"
   },
   "bugs": {
     "url": "https://github.com/stolen-wallet-registry/swr-core/issues"
@@ -56,6 +53,7 @@
     "@chainlink/contracts": "^0.4.1",
     "@connext/nxtp-contracts": "^0.2.0-beta.17",
     "@openzeppelin/contracts": "^4.7.1",
-    "@openzeppelin/contracts-upgradeable": "^4.7.1"
+    "@openzeppelin/contracts-upgradeable": "^4.7.1",
+    "@wallet-hygiene/swr-contracts": "^0.0.6"
   }
 }

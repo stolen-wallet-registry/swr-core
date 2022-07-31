@@ -671,6 +671,14 @@
     "@typescript-eslint/types" "5.30.5"
     eslint-visitor-keys "^3.3.0"
 
+"@wallet-hygiene/swr-contracts@^0.0.6":
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/@wallet-hygiene/swr-contracts/-/swr-contracts-0.0.6.tgz#aeb69488db8d42597dd5c122f3c14c6fce8b3b14"
+  integrity sha512-+Jq0flev6+pkz4JYUOFmeh/rkilNiVC1rNR4JSFiMzliZbfTDMf2b2WM7Nfrcz9ju6BAnIQIOjCkCr3LjCSD7Q==
+  dependencies:
+    "@chainlink/contracts" "^0.4.1"
+    "@connext/nxtp-contracts" "^0.2.0-beta.17"
+
 abort-controller@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/abort-controller/-/abort-controller-3.0.0.tgz#eaf54d53b62bae4138e809ca225c8439a6efb392"
