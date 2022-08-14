@@ -28,7 +28,7 @@ abstract contract SwrSignatures is EIP712Registration, EIP712Acknowledgement {
     bytes32 private constant REGISTRATION_TYPEHASH =
         keccak256("registerWallet(address owner,address forwarder,uint256 nonce,uint256 deadline)");
 
-    // mapping(address => TrustedForwarder) private acknowledgementForwarders;
+    mapping(address => TrustedForwarder) private acknowledgementForwarders;
     mapping(address => TrustedForwarder) private trustedForwarders;
     mapping(address => uint256) public nonces;
 
@@ -70,15 +70,13 @@ abstract contract SwrSignatures is EIP712Registration, EIP712Acknowledgement {
         }
     }
 
-    function generateHashStruct(address forwarder) external view returns (bytes32 hashStruct, uint256 deadline) {
+    function generateHashStruct(address forwarder) external returns (bytes32 hashStruct, uint256 deadline) {
         uint256 deadline = _getDeadline();
-        console.log("deadline: ", deadline);
-        // bytes32 hashStruct = keccak256("2");
-
-        console.log("deadline", deadline);
         bytes32 hashStruct = keccak256(
-            abi.encode(ACKNOWLEDGEMENT_TYPEHASH, msg.sender, forwarder, nonces[msg.sender] + 1, deadline)
+            abi.encode(ACKNOWLEDGEMENT_TYPEHASH, msg.sender, forwarder, nonces[msg.sender]++, deadline)
         );
+
+        return (hashStruct, deadline);
     }
 
     function walletRegistration(

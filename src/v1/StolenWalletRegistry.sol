@@ -18,7 +18,9 @@ interface IStolenWalletRegistry {
 /// @notice funds from fees on Optimism go to the Optimism retroactive public goods fund.
 /// @custom:experimental This is an experimental unaudited contract.
 contract StolenWalletRegistry is SwrSignatures {
-    PriceFeedConsumer public priceConsumer;
+    using PublicGoodsAreGood for address;
+
+    PriceFeedConsumer private priceConsumer;
 
     // $5 USD per registration
     uint256 public publicGoodsRegistrationFee = 5;
@@ -37,9 +39,7 @@ contract StolenWalletRegistry is SwrSignatures {
     }
 
     modifier checkFundsForPublicGoods() {
-        uint256 cost = ((publicGoodsRegistrationFee * 10**18) / getLatestETHUSDPrice());
-        emit MsgValue(getLatestETHUSDPrice(), publicGoodsRegistrationFee * 10**18, cost);
-        if (msg.value <= cost) revert NotEnoughFunds();
+        if (msg.value <= ((publicGoodsRegistrationFee * 10**18) / getLatestETHUSDPrice())) revert NotEnoughFunds();
         if (_isWalletRegistered()) revert UserAlreadyRegistered(msg.sender);
 
         _;
@@ -53,7 +53,10 @@ contract StolenWalletRegistry is SwrSignatures {
 
         emit RegisteredAddressEvent(msg.sender, false);
 
-        // fundOptimismRetroactivePublicGoods();
+        (bool sent, ) = PublicGoodsAreGood.OP_RETROACTIVE_GOODS_ADRESS.call{
+            value: msg.value
+        }("");
+        require(sent, "Failed to send Ether");
     }
 
     function isWalletRegistered(address wallet) public view returns (bool) {
@@ -70,16 +73,6 @@ contract StolenWalletRegistry is SwrSignatures {
 
     function whenWalletWasRegisted() public view returns (uint256) {
         return registeredWallets[msg.sender];
-    }
-
-    function fundProtocolGuild() internal {
-        (bool sent, ) = PublicGoodsAreGood.resolveProtcolGuildAddress().call{value: msg.value}("");
-        require(sent, "Failed to send Ether");
-    }
-
-    function fundOptimismRetroactivePublicGoods() internal {
-        (bool sent, ) = PublicGoodsAreGood.resolveOptimismRetroactiveAddress().call{value: msg.value}("");
-        require(sent, "Failed to send Ether");
     }
 
     function _isWalletRegistered() private view returns (bool) {

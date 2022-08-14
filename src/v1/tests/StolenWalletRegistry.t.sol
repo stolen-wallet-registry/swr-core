@@ -4,12 +4,10 @@ pragma solidity ^0.8.15;
 import "../StolenWalletRegistry.sol";
 import "./MockV3Aggregator.sol";
 import "./mocks/HelperConfig.sol";
+import {stdStorage, StdStorage} from "forge-std/Test.sol";
+import {BaseTestHarness} from "./utils/BaseTestHarness.sol";
 
-import "forge-std/Test.sol";
-import "forge-std/Vm.sol";
-import "forge-std/console2.sol";
-
-contract StolenWalletRegistryTest is Test {
+contract StolenWalletRegistryTest is BaseTestHarness {
     using stdStorage for StdStorage;
 
     uint8 internal decimals;
@@ -33,7 +31,7 @@ contract StolenWalletRegistryTest is Test {
     }
 
     function testMyWalletWasStolen(
-        uint256 aliceMsgValue,
+        uint256 userFunds,
         uint256 ethPrice,
         uint8 registrationTimestamp
     ) public {
@@ -41,13 +39,10 @@ contract StolenWalletRegistryTest is Test {
 
         ethPrice = bound(ethPrice, 100000000000, 300000000000); // bound eth price between $1000 and $3000
 
-        uint256 enumerator = stolenWalletRegistry.publicGoodsRegistrationFee() * 10**18;
-        uint256 denominator = uint256(ethPrice / 10**8);
-        uint256 requiredAmount = enumerator / denominator;
+        uint256 requiredAmount = getRequiredAmount(stolenWalletRegistry.publicGoodsRegistrationFee(), ethPrice);
+        userFunds = bound(userFunds, requiredAmount / 2, requiredAmount * 2);
 
-        aliceMsgValue = bound(aliceMsgValue, requiredAmount, requiredAmount * 2);
-        vm.deal(alice, aliceMsgValue);
-
+        vm.deal(alice, userFunds);
         vm.startPrank(payable(alice));
 
         vm.mockCall(
@@ -58,13 +53,13 @@ contract StolenWalletRegistryTest is Test {
 
         vm.warp(registrationTimestamp);
 
-        if (aliceMsgValue > requiredAmount) {
-            stolenWalletRegistry.myWalletWasStolen{value: aliceMsgValue}();
+        if (userFunds > requiredAmount) {
+            stolenWalletRegistry.myWalletWasStolen{value: userFunds}();
             assertEq(stolenWalletRegistry.registeredWalletCount(), 1);
             assertEq(stolenWalletRegistry.registeredWallets(alice), uint256(registrationTimestamp));
         } else {
             vm.expectRevert(StolenWalletRegistry.NotEnoughFunds.selector);
-            stolenWalletRegistry.myWalletWasStolen{value: aliceMsgValue}();
+            stolenWalletRegistry.myWalletWasStolen{value: userFunds}();
             assertEq(stolenWalletRegistry.registeredWalletCount(), 0);
         }
 
@@ -125,22 +120,18 @@ contract StolenWalletRegistryTest is Test {
     //     //     uint256 expirey;
     //     // }
     //     uint256 expirey = uint256(registrationTimestamp + stolenWalletRegistry.DEADLINE_MINUTES());
-
     //     stdstore
     //         .target(address(stolenWalletRegistry))
     //         .sig("trustedForwarders(address)")
     //         .with_key(alice)
     //         .depth(2)
     //         .checked_write(expirey);
-
     //     uint256 slot = stdstore
     //         .target(address(stolenWalletRegistry))
     //         .sig(stolenWalletRegistry.trustedForwarders.selector)
     //         .with_key(alice)
     //         .find();
-
     //     uint256 data = vm.load(address(stolenWalletRegistry), bytes32(slot));
-
     //     assertEq(stolenWalletRegistry.getDeadline(alice), data);
     //     vm.prank(alice);
     //     assertEq(stolenWalletRegistry.getDeadline(), data);

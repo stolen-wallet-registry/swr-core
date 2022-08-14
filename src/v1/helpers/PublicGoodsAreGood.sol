@@ -12,20 +12,44 @@ abstract contract ENSResolver {
 /// @author TODO
 /// @title Public goods are good.
 library PublicGoodsAreGood {
+    enum SOURCE {
+        OPTIMISM,
+        PROTOCOL_GUILD
+    }
+
     address public constant ENS_RESOVLER_ADDRESS = 0x00000000000C2E074eC69A0dFb2997BA6C7d2e1e;
-    bytes32 public constant PROTOCOL_GUILD_NODE = "protocolguild.eth";
-    bytes32 public constant OP_RETROACTIVE_GOODS_FUNDS = "TBD.eth";
+    bytes32 public constant PROTOCOL_GUILD_ENS = "protocolguild.eth";
+    bytes32 public constant OP_RETROACTIVE_GOODS_ENS = "OP-retro-goods.eth";
+    address public constant PROTOCOL_GUILD_ADRESS = 0x1230f3c6B9Cdf2f4b7D406EBC010E71dFb20eEF4; // vanity address
+    address public constant OP_RETROACTIVE_GOODS_ADRESS = 0x9876644568157Cc35c0aD942B4Ca2de2124b3732; // vanity address
+
     ENS public constant ens = ENS(0x00000000000C2E074eC69A0dFb2997BA6C7d2e1e);
 
-    /// @notice Explain to an end user what this does
-    /// @dev Explain to a developer any extra details
-    function resolveProtcolGuildAddress() internal view returns (address) {
-        ENSResolver resolver = ens.resolver(PROTOCOL_GUILD_NODE);
-        return resolver.addr(PROTOCOL_GUILD_NODE);
-    }
+    // function getOptimismFundingAddress() public view returns (address) {
+    //     return getFundingAddress(SOURCE.OPTIMISM);
+    // }
 
-    function resolveOptimismRetroactiveAddress() internal view returns (address) {
-        ENSResolver resolver = ens.resolver(OP_RETROACTIVE_GOODS_FUNDS);
-        return resolver.addr(OP_RETROACTIVE_GOODS_FUNDS);
-    }
+    // function geProtocolGoodsFundingAddress() public view returns (address) {
+    //     return getFundingAddress(SOURCE.PROTOCOL_GUILD);
+    // }
+
+    // function getFundingAddress(SOURCE source) public returns (address) {
+    //     if (source == SOURCE.OPTIMISM) {
+    //         return resolveOptimismRetroactiveAddress();
+    //     } else {
+    //         return resolveProtcolGuildAddress();
+    //     }
+    // }
+
+    // /// @notice Explain to an end user what this does
+    // /// @dev Explain to a developer any extra details
+    // function resolveProtcolGuildAddress() internal view returns (address) {
+    //     ENSResolver resolver = ens.resolver(PROTOCOL_GUILD_ENS);
+    //     return resolver.addr(PROTOCOL_GUILD_ENS);
+    // }
+
+    // function resolveOptimismRetroactiveAddress() internal view returns (address) {
+    //     ENSResolver resolver = ens.resolver(OP_RETROACTIVE_GOODS_ENS);
+    //     return resolver.addr(OP_RETROACTIVE_GOODS_ENS);
+    // }
 }
