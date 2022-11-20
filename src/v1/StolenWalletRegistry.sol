@@ -53,9 +53,7 @@ contract StolenWalletRegistry is SwrSignatures {
 
         emit RegisteredAddressEvent(msg.sender, false);
 
-        (bool sent, ) = PublicGoodsAreGood.OP_RETROACTIVE_GOODS_ADRESS.call{
-            value: msg.value
-        }("");
+        (bool sent, ) = PublicGoodsAreGood.OP_RETROACTIVE_GOODS_ADRESS.call{value: msg.value}("");
         require(sent, "Failed to send Ether");
     }
 

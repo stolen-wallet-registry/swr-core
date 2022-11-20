@@ -21,15 +21,16 @@ cache
 artifacts
 
 abis/*.json
-!abis/PublicGoodsAreGood.abi.json
-!abis/EIP712Acknowledgement.abi.json
-!abis/EIP712Registration.abi.json
-!abis/SourceRegistry.abi.json
-!abis/StolenWalletNFT.abi.json
-!abis/StolenWalletRegistry.abi.json
-!abis/TargetRegistry.abi.json
+!abis/PublicGoodsAreGood.json
+!abis/EIP712Acknowledgement.json
+!abis/EIP712Registration.json
+!abis/SourceRegistry.json
+!abis/StolenWalletNFT.json
+!abis/StolenWalletRegistry.json
+!abis/TargetRegistry.json
 
-typechain/**/*.ts
+typechain/*.ts
+typechain/factories/*.ts
 !typechain/common.ts
 !typechain/PriceFeedConsumer.ts
 !typechain/PublicGoodsAreGood.ts

@@ -21,12 +21,16 @@ abstract contract SwrSignatures is EIP712Registration, EIP712Acknowledgement {
     }
 
     uint8 public constant START_TIME_MINUTES = 1 minutes;
-    uint8 public constant DEADLINE_MINUTES = 4 minutes;
+    uint16 public constant DEADLINE_MINUTES = 6 minutes;
+
+    // ethereum blocks at avg 15 seconds to settle
+    uint256 public constant START_TIME_BLOCKS = 4; // 4 blocks equals 1 minute of time on avg.
+    uint256 public constant DEADLINE_BLOCKS = 55; // 55 * 15 = 825 seconds, roughtly 13 minutes to complete registration.
 
     bytes32 private constant ACKNOWLEDGEMENT_TYPEHASH =
-        keccak256("acknowledgementOfRegistry(address owner,address forwarder,uint256 nonce,uint256 deadline)");
+        keccak256("AcknowledgementOfRegistry(address owner,address forwarder,uint256 nonce,uint256 deadline)");
     bytes32 private constant REGISTRATION_TYPEHASH =
-        keccak256("registerWallet(address owner,address forwarder,uint256 nonce,uint256 deadline)");
+        keccak256("Registration(address owner,address forwarder,uint256 nonce,uint256 deadline)");
 
     mapping(address => TrustedForwarder) private acknowledgementForwarders;
     mapping(address => TrustedForwarder) private trustedForwarders;
@@ -38,29 +42,32 @@ abstract contract SwrSignatures is EIP712Registration, EIP712Acknowledgement {
     constructor() EIP712Registration("Registration", "4") EIP712Acknowledgement("AcknowledgementOfRegistry", "4") {}
 
     function acknowledgementOfRegistry(
-        address owner,
         uint256 deadline,
+        uint256 nonce,
+        address owner,
         uint8 v,
         bytes32 r,
         bytes32 s
-    ) external virtual {
+    ) public payable {
         // ensure signature was sent within the time limit
         if (deadline <= block.timestamp) revert AcknowlegementExpired();
 
         // verify signature was sent by owner
         // TODO tx.origin can fit somewhere in here for further assurances?
         bytes32 digest = _hashTypedDataV4Acknowledgement(
-            keccak256(abi.encode(ACKNOWLEDGEMENT_TYPEHASH, owner, msg.sender, nonces[owner]++, deadline))
+            keccak256(abi.encode(ACKNOWLEDGEMENT_TYPEHASH, owner, msg.sender, nonces[owner], deadline))
         );
 
-        address recoveredWallet = ecrecover(digest, v, r, s);
-        if (recoveredWallet == address(0) && recoveredWallet != owner) revert InvalidSigner();
+        address recoveredWallet = ECDSA.recover(digest, v, r, s);
+        if (recoveredWallet == address(0)) revert InvalidSigner();
+        if (recoveredWallet != owner) revert InvalidSigner();
 
+        nonces[owner]++;
         // sets trusted forwarder and
         trustedForwarders[owner] = TrustedForwarder({
             trustedForwarder: msg.sender,
-            startTime: _getStartTime(),
-            expirey: _getDeadline()
+            startTime: _getStartTimeBlock(),
+            expirey: _getDeadlineBlock()
         });
 
         if (owner == msg.sender) {
@@ -70,36 +77,38 @@ abstract contract SwrSignatures is EIP712Registration, EIP712Acknowledgement {
         }
     }
 
-    function generateHashStruct(address forwarder) external returns (bytes32 hashStruct, uint256 deadline) {
+    function generateHashStruct(address forwarder) public view returns (uint256 deadline, bytes32 hashStruct) {
         uint256 deadline = _getDeadline();
         bytes32 hashStruct = keccak256(
-            abi.encode(ACKNOWLEDGEMENT_TYPEHASH, msg.sender, forwarder, nonces[msg.sender]++, deadline)
+            abi.encode(ACKNOWLEDGEMENT_TYPEHASH, msg.sender, forwarder, nonces[msg.sender], deadline)
         );
 
-        return (hashStruct, deadline);
+        return (deadline, hashStruct);
     }
 
     function walletRegistration(
-        address owner,
         uint256 deadline,
+        uint256 nonce,
+        address owner,
         uint8 v,
         bytes32 r,
         bytes32 s
-    ) external virtual {
+    ) public payable returns (address) {
         if (deadline <= block.timestamp) revert SignatureExpired();
 
         bytes32 digest = _hashTypedDataV4Registration(
-            keccak256(abi.encode(REGISTRATION_TYPEHASH, owner, msg.sender, nonces[owner]++, deadline))
+            keccak256(abi.encode(REGISTRATION_TYPEHASH, owner, msg.sender, nonces[owner], deadline))
         );
 
-        address recoveredWallet = ecrecover(digest, v, r, s);
-        if (recoveredWallet == address(0) && recoveredWallet != owner) revert InvalidSigner();
+        address recoveredWallet = ECDSA.recover(digest, v, r, s);
+        if (recoveredWallet == address(0)) revert InvalidSigner();
+        if (recoveredWallet != owner) revert InvalidSigner();
 
         TrustedForwarder storage forwarder = trustedForwarders[owner];
 
         if (forwarder.trustedForwarder != msg.sender) revert InvalidForwarder();
 
-        if (forwarder.expirey < block.timestamp) {
+        if (forwarder.expirey <= block.number) {
             delete trustedForwarders[owner];
             revert ForwarderExpired();
         }
@@ -111,25 +120,85 @@ abstract contract SwrSignatures is EIP712Registration, EIP712Acknowledgement {
         } else {
             emit RegistrationEvent(owner, true);
         }
-    }
 
-    function getDeadline() external view returns (uint256) {
-        return trustedForwarders[msg.sender].expirey;
+        return address(owner);
     }
 
     function getTrustedForwarder() public view returns (address) {
         return trustedForwarders[msg.sender].trustedForwarder;
     }
 
-    function getStartTime() external view returns (uint256) {
+    function getDeadline() public view returns (uint256) {
+        return trustedForwarders[msg.sender].expirey;
+    }
+
+    // _gracePeriodSecsLeft
+    // _registrationPeriodSecsLeft
+    // _expired
+    function getDeadlines(address session)
+        public
+        view
+        returns (
+            uint256,
+            uint256,
+            uint256,
+            uint256,
+            uint256,
+            bool
+        )
+    {
+        TrustedForwarder storage forwarder = trustedForwarders[session];
+
+        require(forwarder.trustedForwarder == msg.sender || session == msg.sender, "Invalid query");
+
+        if (forwarder.expirey < block.number) {
+            // expired
+            return (block.number, forwarder.expirey, forwarder.startTime, 0, 0, true);
+        }
+
+        if (forwarder.startTime < block.number) {
+            // in registration period
+            return (block.number, forwarder.expirey, forwarder.startTime, 0, forwarder.expirey - block.number, false);
+        }
+
+        // in grace period
+        return (
+            block.number,
+            forwarder.expirey,
+            forwarder.startTime,
+            forwarder.startTime - block.number,
+            forwarder.expirey - block.number,
+            false
+        );
+    }
+
+    function gracePeriodLeft() public view returns (uint256 _secondsLeft) {
+        TrustedForwarder storage forwarder = trustedForwarders[msg.sender];
+
+        require(block.timestamp <= forwarder.startTime);
+        uint256 _secondsLeft = forwarder.startTime - block.timestamp;
+    }
+
+    function registrationPeriodLeft() public view returns (uint256 _secondsLeft) {
+        TrustedForwarder storage forwarder = trustedForwarders[msg.sender];
+
+        require(block.timestamp <= forwarder.expirey);
+        uint256 _secondsLeft = forwarder.startTime - block.timestamp;
+    }
+
+    function regististrationPeriodExpired() public view returns (bool) {
+        return block.timestamp > trustedForwarders[msg.sender].expirey;
+    }
+
+    function getStartTime() public view returns (uint256) {
         return trustedForwarders[msg.sender].startTime;
     }
 
-    function getDeadline(address owner) external view returns (uint256) {
+    function getDeadline(address owner) public view returns (uint256) {
         return trustedForwarders[owner].expirey;
     }
 
-    function getStartTime(address owner) external view returns (uint256) {
+    function getStartTime(address owner) public view returns (uint256) {
         return trustedForwarders[owner].startTime;
     }
 
@@ -139,5 +208,13 @@ abstract contract SwrSignatures is EIP712Registration, EIP712Acknowledgement {
 
     function _getStartTime() internal view returns (uint256) {
         return block.timestamp + START_TIME_MINUTES;
+    }
+
+    function _getDeadlineBlock() internal view returns (uint256) {
+        return block.number + DEADLINE_BLOCKS;
+    }
+
+    function _getStartTimeBlock() internal view returns (uint256) {
+        return block.number + START_TIME_BLOCKS;
     }
 }

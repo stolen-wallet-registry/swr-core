@@ -30,6 +30,27 @@ contract StolenWalletRegistryTest is BaseTestHarness {
         charlie = vm.addr(3);
     }
 
+    // function testSignature() {
+    //     vm.deal(alice, 1 ether);
+    //     vm.startPrank(payable(alice));
+    //     (bytes32 hashStruct, uint256 deadline) = stolenWalletRegistry.generateHashStruct(bob);
+    //     bytes32 hash = keccak256("acknowledgementOfRegistry(address owner,address forwarder)");
+
+    //     bytes memory sig = vm.sign(alice, hash, alice, bob);
+    //     (bytes32 r, bytes32 s, uint8 v) = splitSignature(hashStruct);
+
+    //     vm.stopPrank();
+
+    //     vm.startPrank(payable(bob));
+
+    //     stolenWalletRegistry.acknowledgementOfRegistry{value: 1 ether}(alice, v, r, s);
+
+    //     vm.stopPrank();
+    //     // uint8 v,
+    //     // bytes32 r,
+    //     // bytes32 s
+    // }
+
     function testMyWalletWasStolen(
         uint256 userFunds,
         uint256 ethPrice,

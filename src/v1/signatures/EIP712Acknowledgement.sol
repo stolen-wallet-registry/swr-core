@@ -54,7 +54,7 @@ abstract contract EIP712Acknowledgement {
         bytes32 hashedName = keccak256(bytes(name));
         bytes32 hashedVersion = keccak256(bytes(version));
         bytes32 typeHash = keccak256(
-            "EIP712Domain(string name,string version,uint256 chainId,address verifyingContract, bytes32 salt)"
+            "EIP712Domain(string name,string version,uint256 chainId,address verifyingContract,bytes32 salt)"
         );
         _HASHED_NAME__ACKNOWLEDGEMENT = hashedName;
         _HASHED_VERSION__ACKNOWLEDGEMENT = hashedVersion;

@@ -8,7 +8,6 @@ import type {
   BytesLike,
   CallOverrides,
   ContractTransaction,
-  Overrides,
   PayableOverrides,
   PopulatedTransaction,
   Signer,
@@ -30,49 +29,84 @@ import type {
 
 export interface StolenWalletRegistryInterface extends utils.Interface {
   functions: {
-    "acknowledgementOfRegistry(address,uint256,uint8,bytes32,bytes32)": FunctionFragment;
+    "DEADLINE_BLOCKS()": FunctionFragment;
+    "DEADLINE_MINUTES()": FunctionFragment;
+    "START_TIME_BLOCKS()": FunctionFragment;
+    "START_TIME_MINUTES()": FunctionFragment;
+    "acknowledgementOfRegistry(uint256,uint256,address,uint8,bytes32,bytes32)": FunctionFragment;
     "generateHashStruct(address)": FunctionFragment;
     "getDeadline()": FunctionFragment;
     "getDeadline(address)": FunctionFragment;
+    "getDeadlines(address)": FunctionFragment;
     "getStartTime(address)": FunctionFragment;
     "getStartTime()": FunctionFragment;
-    "getTrustedForwarder(address)": FunctionFragment;
     "getTrustedForwarder()": FunctionFragment;
+    "gracePeriodLeft()": FunctionFragment;
     "isWalletRegistered(address)": FunctionFragment;
+    "isWalletRegistered()": FunctionFragment;
     "myWalletWasStolen()": FunctionFragment;
     "nonces(address)": FunctionFragment;
     "publicGoodsRegistrationFee()": FunctionFragment;
     "registeredWalletCount()": FunctionFragment;
     "registeredWallets(address)": FunctionFragment;
-    "walletRegistration(address,uint256,uint8,bytes32,bytes32)": FunctionFragment;
+    "regististrationPeriodExpired()": FunctionFragment;
+    "registrationPeriodLeft()": FunctionFragment;
+    "walletRegistration(uint256,uint256,address,uint8,bytes32,bytes32)": FunctionFragment;
     "whenWalletWasRegisted(address)": FunctionFragment;
+    "whenWalletWasRegisted()": FunctionFragment;
   };
 
   getFunction(
     nameOrSignatureOrTopic:
+      | "DEADLINE_BLOCKS"
+      | "DEADLINE_MINUTES"
+      | "START_TIME_BLOCKS"
+      | "START_TIME_MINUTES"
       | "acknowledgementOfRegistry"
       | "generateHashStruct"
       | "getDeadline()"
       | "getDeadline(address)"
+      | "getDeadlines"
       | "getStartTime(address)"
       | "getStartTime()"
-      | "getTrustedForwarder(address)"
-      | "getTrustedForwarder()"
-      | "isWalletRegistered"
+      | "getTrustedForwarder"
+      | "gracePeriodLeft"
+      | "isWalletRegistered(address)"
+      | "isWalletRegistered()"
       | "myWalletWasStolen"
       | "nonces"
       | "publicGoodsRegistrationFee"
       | "registeredWalletCount"
       | "registeredWallets"
+      | "regististrationPeriodExpired"
+      | "registrationPeriodLeft"
       | "walletRegistration"
-      | "whenWalletWasRegisted"
+      | "whenWalletWasRegisted(address)"
+      | "whenWalletWasRegisted()"
   ): FunctionFragment;
 
   encodeFunctionData(
+    functionFragment: "DEADLINE_BLOCKS",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "DEADLINE_MINUTES",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "START_TIME_BLOCKS",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "START_TIME_MINUTES",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
     functionFragment: "acknowledgementOfRegistry",
     values: [
-      PromiseOrValue<string>,
       PromiseOrValue<BigNumberish>,
+      PromiseOrValue<BigNumberish>,
+      PromiseOrValue<string>,
       PromiseOrValue<BigNumberish>,
       PromiseOrValue<BytesLike>,
       PromiseOrValue<BytesLike>
@@ -91,6 +125,10 @@ export interface StolenWalletRegistryInterface extends utils.Interface {
     values: [PromiseOrValue<string>]
   ): string;
   encodeFunctionData(
+    functionFragment: "getDeadlines",
+    values: [PromiseOrValue<string>]
+  ): string;
+  encodeFunctionData(
     functionFragment: "getStartTime(address)",
     values: [PromiseOrValue<string>]
   ): string;
@@ -99,16 +137,20 @@ export interface StolenWalletRegistryInterface extends utils.Interface {
     values?: undefined
   ): string;
   encodeFunctionData(
-    functionFragment: "getTrustedForwarder(address)",
-    values: [PromiseOrValue<string>]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "getTrustedForwarder()",
+    functionFragment: "getTrustedForwarder",
     values?: undefined
   ): string;
   encodeFunctionData(
-    functionFragment: "isWalletRegistered",
+    functionFragment: "gracePeriodLeft",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "isWalletRegistered(address)",
     values: [PromiseOrValue<string>]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "isWalletRegistered()",
+    values?: undefined
   ): string;
   encodeFunctionData(
     functionFragment: "myWalletWasStolen",
@@ -131,20 +173,49 @@ export interface StolenWalletRegistryInterface extends utils.Interface {
     values: [PromiseOrValue<string>]
   ): string;
   encodeFunctionData(
+    functionFragment: "regististrationPeriodExpired",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "registrationPeriodLeft",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
     functionFragment: "walletRegistration",
     values: [
-      PromiseOrValue<string>,
       PromiseOrValue<BigNumberish>,
+      PromiseOrValue<BigNumberish>,
+      PromiseOrValue<string>,
       PromiseOrValue<BigNumberish>,
       PromiseOrValue<BytesLike>,
       PromiseOrValue<BytesLike>
     ]
   ): string;
   encodeFunctionData(
-    functionFragment: "whenWalletWasRegisted",
+    functionFragment: "whenWalletWasRegisted(address)",
     values: [PromiseOrValue<string>]
   ): string;
+  encodeFunctionData(
+    functionFragment: "whenWalletWasRegisted()",
+    values?: undefined
+  ): string;
 
+  decodeFunctionResult(
+    functionFragment: "DEADLINE_BLOCKS",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "DEADLINE_MINUTES",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "START_TIME_BLOCKS",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "START_TIME_MINUTES",
+    data: BytesLike
+  ): Result;
   decodeFunctionResult(
     functionFragment: "acknowledgementOfRegistry",
     data: BytesLike
@@ -162,6 +233,10 @@ export interface StolenWalletRegistryInterface extends utils.Interface {
     data: BytesLike
   ): Result;
   decodeFunctionResult(
+    functionFragment: "getDeadlines",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
     functionFragment: "getStartTime(address)",
     data: BytesLike
   ): Result;
@@ -170,15 +245,19 @@ export interface StolenWalletRegistryInterface extends utils.Interface {
     data: BytesLike
   ): Result;
   decodeFunctionResult(
-    functionFragment: "getTrustedForwarder(address)",
+    functionFragment: "getTrustedForwarder",
     data: BytesLike
   ): Result;
   decodeFunctionResult(
-    functionFragment: "getTrustedForwarder()",
+    functionFragment: "gracePeriodLeft",
     data: BytesLike
   ): Result;
   decodeFunctionResult(
-    functionFragment: "isWalletRegistered",
+    functionFragment: "isWalletRegistered(address)",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "isWalletRegistered()",
     data: BytesLike
   ): Result;
   decodeFunctionResult(
@@ -199,21 +278,35 @@ export interface StolenWalletRegistryInterface extends utils.Interface {
     data: BytesLike
   ): Result;
   decodeFunctionResult(
+    functionFragment: "regististrationPeriodExpired",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "registrationPeriodLeft",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
     functionFragment: "walletRegistration",
     data: BytesLike
   ): Result;
   decodeFunctionResult(
-    functionFragment: "whenWalletWasRegisted",
+    functionFragment: "whenWalletWasRegisted(address)",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "whenWalletWasRegisted()",
     data: BytesLike
   ): Result;
 
   events: {
     "AcknowledgementEvent(address,bool)": EventFragment;
+    "MsgValue(uint256,uint256,uint256)": EventFragment;
     "RegisteredAddressEvent(address,bool)": EventFragment;
     "RegistrationEvent(address,bool)": EventFragment;
   };
 
   getEvent(nameOrSignatureOrTopic: "AcknowledgementEvent"): EventFragment;
+  getEvent(nameOrSignatureOrTopic: "MsgValue"): EventFragment;
   getEvent(nameOrSignatureOrTopic: "RegisteredAddressEvent"): EventFragment;
   getEvent(nameOrSignatureOrTopic: "RegistrationEvent"): EventFragment;
 }
@@ -229,6 +322,18 @@ export type AcknowledgementEventEvent = TypedEvent<
 
 export type AcknowledgementEventEventFilter =
   TypedEventFilter<AcknowledgementEventEvent>;
+
+export interface MsgValueEventObject {
+  value1: BigNumber;
+  value2: BigNumber;
+  cost: BigNumber;
+}
+export type MsgValueEvent = TypedEvent<
+  [BigNumber, BigNumber, BigNumber],
+  MsgValueEventObject
+>;
+
+export type MsgValueEventFilter = TypedEventFilter<MsgValueEvent>;
 
 export interface RegisteredAddressEventEventObject {
   registeredWallet: string;
@@ -281,20 +386,29 @@ export interface StolenWalletRegistry extends BaseContract {
   removeListener: OnEvent<this>;
 
   functions: {
+    DEADLINE_BLOCKS(overrides?: CallOverrides): Promise<[BigNumber]>;
+
+    DEADLINE_MINUTES(overrides?: CallOverrides): Promise<[number]>;
+
+    START_TIME_BLOCKS(overrides?: CallOverrides): Promise<[BigNumber]>;
+
+    START_TIME_MINUTES(overrides?: CallOverrides): Promise<[number]>;
+
     acknowledgementOfRegistry(
-      owner: PromiseOrValue<string>,
       deadline: PromiseOrValue<BigNumberish>,
+      nonce: PromiseOrValue<BigNumberish>,
+      owner: PromiseOrValue<string>,
       v: PromiseOrValue<BigNumberish>,
       r: PromiseOrValue<BytesLike>,
       s: PromiseOrValue<BytesLike>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: PayableOverrides & { from?: PromiseOrValue<string> }
     ): Promise<ContractTransaction>;
 
     generateHashStruct(
       forwarder: PromiseOrValue<string>,
       overrides?: CallOverrides
     ): Promise<
-      [string, BigNumber] & { hashStruct: string; deadline: BigNumber }
+      [BigNumber, string] & { deadline: BigNumber; hashStruct: string }
     >;
 
     "getDeadline()"(overrides?: CallOverrides): Promise<[BigNumber]>;
@@ -304,6 +418,13 @@ export interface StolenWalletRegistry extends BaseContract {
       overrides?: CallOverrides
     ): Promise<[BigNumber]>;
 
+    getDeadlines(
+      session: PromiseOrValue<string>,
+      overrides?: CallOverrides
+    ): Promise<
+      [BigNumber, BigNumber, BigNumber, BigNumber, BigNumber, boolean]
+    >;
+
     "getStartTime(address)"(
       owner: PromiseOrValue<string>,
       overrides?: CallOverrides
@@ -311,17 +432,18 @@ export interface StolenWalletRegistry extends BaseContract {
 
     "getStartTime()"(overrides?: CallOverrides): Promise<[BigNumber]>;
 
-    "getTrustedForwarder(address)"(
-      owner: PromiseOrValue<string>,
+    getTrustedForwarder(overrides?: CallOverrides): Promise<[string]>;
+
+    gracePeriodLeft(
       overrides?: CallOverrides
-    ): Promise<[string]>;
+    ): Promise<[BigNumber] & { _secondsLeft: BigNumber }>;
 
-    "getTrustedForwarder()"(overrides?: CallOverrides): Promise<[string]>;
-
-    isWalletRegistered(
+    "isWalletRegistered(address)"(
       wallet: PromiseOrValue<string>,
       overrides?: CallOverrides
     ): Promise<[boolean]>;
+
+    "isWalletRegistered()"(overrides?: CallOverrides): Promise<[boolean]>;
 
     myWalletWasStolen(
       overrides?: PayableOverrides & { from?: PromiseOrValue<string> }
@@ -341,34 +463,52 @@ export interface StolenWalletRegistry extends BaseContract {
       overrides?: CallOverrides
     ): Promise<[BigNumber]>;
 
+    regististrationPeriodExpired(overrides?: CallOverrides): Promise<[boolean]>;
+
+    registrationPeriodLeft(
+      overrides?: CallOverrides
+    ): Promise<[BigNumber] & { _secondsLeft: BigNumber }>;
+
     walletRegistration(
-      owner: PromiseOrValue<string>,
       deadline: PromiseOrValue<BigNumberish>,
+      nonce: PromiseOrValue<BigNumberish>,
+      owner: PromiseOrValue<string>,
       v: PromiseOrValue<BigNumberish>,
       r: PromiseOrValue<BytesLike>,
       s: PromiseOrValue<BytesLike>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: PayableOverrides & { from?: PromiseOrValue<string> }
     ): Promise<ContractTransaction>;
 
-    whenWalletWasRegisted(
+    "whenWalletWasRegisted(address)"(
       wallet: PromiseOrValue<string>,
       overrides?: CallOverrides
     ): Promise<[BigNumber]>;
+
+    "whenWalletWasRegisted()"(overrides?: CallOverrides): Promise<[BigNumber]>;
   };
 
+  DEADLINE_BLOCKS(overrides?: CallOverrides): Promise<BigNumber>;
+
+  DEADLINE_MINUTES(overrides?: CallOverrides): Promise<number>;
+
+  START_TIME_BLOCKS(overrides?: CallOverrides): Promise<BigNumber>;
+
+  START_TIME_MINUTES(overrides?: CallOverrides): Promise<number>;
+
   acknowledgementOfRegistry(
-    owner: PromiseOrValue<string>,
     deadline: PromiseOrValue<BigNumberish>,
+    nonce: PromiseOrValue<BigNumberish>,
+    owner: PromiseOrValue<string>,
     v: PromiseOrValue<BigNumberish>,
     r: PromiseOrValue<BytesLike>,
     s: PromiseOrValue<BytesLike>,
-    overrides?: Overrides & { from?: PromiseOrValue<string> }
+    overrides?: PayableOverrides & { from?: PromiseOrValue<string> }
   ): Promise<ContractTransaction>;
 
   generateHashStruct(
     forwarder: PromiseOrValue<string>,
     overrides?: CallOverrides
-  ): Promise<[string, BigNumber] & { hashStruct: string; deadline: BigNumber }>;
+  ): Promise<[BigNumber, string] & { deadline: BigNumber; hashStruct: string }>;
 
   "getDeadline()"(overrides?: CallOverrides): Promise<BigNumber>;
 
@@ -377,6 +517,11 @@ export interface StolenWalletRegistry extends BaseContract {
     overrides?: CallOverrides
   ): Promise<BigNumber>;
 
+  getDeadlines(
+    session: PromiseOrValue<string>,
+    overrides?: CallOverrides
+  ): Promise<[BigNumber, BigNumber, BigNumber, BigNumber, BigNumber, boolean]>;
+
   "getStartTime(address)"(
     owner: PromiseOrValue<string>,
     overrides?: CallOverrides
@@ -384,17 +529,16 @@ export interface StolenWalletRegistry extends BaseContract {
 
   "getStartTime()"(overrides?: CallOverrides): Promise<BigNumber>;
 
-  "getTrustedForwarder(address)"(
-    owner: PromiseOrValue<string>,
-    overrides?: CallOverrides
-  ): Promise<string>;
+  getTrustedForwarder(overrides?: CallOverrides): Promise<string>;
 
-  "getTrustedForwarder()"(overrides?: CallOverrides): Promise<string>;
+  gracePeriodLeft(overrides?: CallOverrides): Promise<BigNumber>;
 
-  isWalletRegistered(
+  "isWalletRegistered(address)"(
     wallet: PromiseOrValue<string>,
     overrides?: CallOverrides
   ): Promise<boolean>;
+
+  "isWalletRegistered()"(overrides?: CallOverrides): Promise<boolean>;
 
   myWalletWasStolen(
     overrides?: PayableOverrides & { from?: PromiseOrValue<string> }
@@ -414,24 +558,40 @@ export interface StolenWalletRegistry extends BaseContract {
     overrides?: CallOverrides
   ): Promise<BigNumber>;
 
+  regististrationPeriodExpired(overrides?: CallOverrides): Promise<boolean>;
+
+  registrationPeriodLeft(overrides?: CallOverrides): Promise<BigNumber>;
+
   walletRegistration(
-    owner: PromiseOrValue<string>,
     deadline: PromiseOrValue<BigNumberish>,
+    nonce: PromiseOrValue<BigNumberish>,
+    owner: PromiseOrValue<string>,
     v: PromiseOrValue<BigNumberish>,
     r: PromiseOrValue<BytesLike>,
     s: PromiseOrValue<BytesLike>,
-    overrides?: Overrides & { from?: PromiseOrValue<string> }
+    overrides?: PayableOverrides & { from?: PromiseOrValue<string> }
   ): Promise<ContractTransaction>;
 
-  whenWalletWasRegisted(
+  "whenWalletWasRegisted(address)"(
     wallet: PromiseOrValue<string>,
     overrides?: CallOverrides
   ): Promise<BigNumber>;
 
+  "whenWalletWasRegisted()"(overrides?: CallOverrides): Promise<BigNumber>;
+
   callStatic: {
+    DEADLINE_BLOCKS(overrides?: CallOverrides): Promise<BigNumber>;
+
+    DEADLINE_MINUTES(overrides?: CallOverrides): Promise<number>;
+
+    START_TIME_BLOCKS(overrides?: CallOverrides): Promise<BigNumber>;
+
+    START_TIME_MINUTES(overrides?: CallOverrides): Promise<number>;
+
     acknowledgementOfRegistry(
-      owner: PromiseOrValue<string>,
       deadline: PromiseOrValue<BigNumberish>,
+      nonce: PromiseOrValue<BigNumberish>,
+      owner: PromiseOrValue<string>,
       v: PromiseOrValue<BigNumberish>,
       r: PromiseOrValue<BytesLike>,
       s: PromiseOrValue<BytesLike>,
@@ -442,7 +602,7 @@ export interface StolenWalletRegistry extends BaseContract {
       forwarder: PromiseOrValue<string>,
       overrides?: CallOverrides
     ): Promise<
-      [string, BigNumber] & { hashStruct: string; deadline: BigNumber }
+      [BigNumber, string] & { deadline: BigNumber; hashStruct: string }
     >;
 
     "getDeadline()"(overrides?: CallOverrides): Promise<BigNumber>;
@@ -452,6 +612,13 @@ export interface StolenWalletRegistry extends BaseContract {
       overrides?: CallOverrides
     ): Promise<BigNumber>;
 
+    getDeadlines(
+      session: PromiseOrValue<string>,
+      overrides?: CallOverrides
+    ): Promise<
+      [BigNumber, BigNumber, BigNumber, BigNumber, BigNumber, boolean]
+    >;
+
     "getStartTime(address)"(
       owner: PromiseOrValue<string>,
       overrides?: CallOverrides
@@ -459,17 +626,16 @@ export interface StolenWalletRegistry extends BaseContract {
 
     "getStartTime()"(overrides?: CallOverrides): Promise<BigNumber>;
 
-    "getTrustedForwarder(address)"(
-      owner: PromiseOrValue<string>,
-      overrides?: CallOverrides
-    ): Promise<string>;
+    getTrustedForwarder(overrides?: CallOverrides): Promise<string>;
 
-    "getTrustedForwarder()"(overrides?: CallOverrides): Promise<string>;
+    gracePeriodLeft(overrides?: CallOverrides): Promise<BigNumber>;
 
-    isWalletRegistered(
+    "isWalletRegistered(address)"(
       wallet: PromiseOrValue<string>,
       overrides?: CallOverrides
     ): Promise<boolean>;
+
+    "isWalletRegistered()"(overrides?: CallOverrides): Promise<boolean>;
 
     myWalletWasStolen(overrides?: CallOverrides): Promise<void>;
 
@@ -487,19 +653,26 @@ export interface StolenWalletRegistry extends BaseContract {
       overrides?: CallOverrides
     ): Promise<BigNumber>;
 
+    regististrationPeriodExpired(overrides?: CallOverrides): Promise<boolean>;
+
+    registrationPeriodLeft(overrides?: CallOverrides): Promise<BigNumber>;
+
     walletRegistration(
-      owner: PromiseOrValue<string>,
       deadline: PromiseOrValue<BigNumberish>,
+      nonce: PromiseOrValue<BigNumberish>,
+      owner: PromiseOrValue<string>,
       v: PromiseOrValue<BigNumberish>,
       r: PromiseOrValue<BytesLike>,
       s: PromiseOrValue<BytesLike>,
       overrides?: CallOverrides
-    ): Promise<void>;
+    ): Promise<string>;
 
-    whenWalletWasRegisted(
+    "whenWalletWasRegisted(address)"(
       wallet: PromiseOrValue<string>,
       overrides?: CallOverrides
     ): Promise<BigNumber>;
+
+    "whenWalletWasRegisted()"(overrides?: CallOverrides): Promise<BigNumber>;
   };
 
   filters: {
@@ -511,6 +684,13 @@ export interface StolenWalletRegistry extends BaseContract {
       owner?: PromiseOrValue<string> | null,
       isSponsored?: PromiseOrValue<boolean> | null
     ): AcknowledgementEventEventFilter;
+
+    "MsgValue(uint256,uint256,uint256)"(
+      value1?: null,
+      value2?: null,
+      cost?: null
+    ): MsgValueEventFilter;
+    MsgValue(value1?: null, value2?: null, cost?: null): MsgValueEventFilter;
 
     "RegisteredAddressEvent(address,bool)"(
       registeredWallet?: null,
@@ -532,13 +712,22 @@ export interface StolenWalletRegistry extends BaseContract {
   };
 
   estimateGas: {
+    DEADLINE_BLOCKS(overrides?: CallOverrides): Promise<BigNumber>;
+
+    DEADLINE_MINUTES(overrides?: CallOverrides): Promise<BigNumber>;
+
+    START_TIME_BLOCKS(overrides?: CallOverrides): Promise<BigNumber>;
+
+    START_TIME_MINUTES(overrides?: CallOverrides): Promise<BigNumber>;
+
     acknowledgementOfRegistry(
-      owner: PromiseOrValue<string>,
       deadline: PromiseOrValue<BigNumberish>,
+      nonce: PromiseOrValue<BigNumberish>,
+      owner: PromiseOrValue<string>,
       v: PromiseOrValue<BigNumberish>,
       r: PromiseOrValue<BytesLike>,
       s: PromiseOrValue<BytesLike>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: PayableOverrides & { from?: PromiseOrValue<string> }
     ): Promise<BigNumber>;
 
     generateHashStruct(
@@ -553,6 +742,11 @@ export interface StolenWalletRegistry extends BaseContract {
       overrides?: CallOverrides
     ): Promise<BigNumber>;
 
+    getDeadlines(
+      session: PromiseOrValue<string>,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
+
     "getStartTime(address)"(
       owner: PromiseOrValue<string>,
       overrides?: CallOverrides
@@ -560,17 +754,16 @@ export interface StolenWalletRegistry extends BaseContract {
 
     "getStartTime()"(overrides?: CallOverrides): Promise<BigNumber>;
 
-    "getTrustedForwarder(address)"(
-      owner: PromiseOrValue<string>,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    getTrustedForwarder(overrides?: CallOverrides): Promise<BigNumber>;
 
-    "getTrustedForwarder()"(overrides?: CallOverrides): Promise<BigNumber>;
+    gracePeriodLeft(overrides?: CallOverrides): Promise<BigNumber>;
 
-    isWalletRegistered(
+    "isWalletRegistered(address)"(
       wallet: PromiseOrValue<string>,
       overrides?: CallOverrides
     ): Promise<BigNumber>;
+
+    "isWalletRegistered()"(overrides?: CallOverrides): Promise<BigNumber>;
 
     myWalletWasStolen(
       overrides?: PayableOverrides & { from?: PromiseOrValue<string> }
@@ -590,29 +783,47 @@ export interface StolenWalletRegistry extends BaseContract {
       overrides?: CallOverrides
     ): Promise<BigNumber>;
 
+    regististrationPeriodExpired(overrides?: CallOverrides): Promise<BigNumber>;
+
+    registrationPeriodLeft(overrides?: CallOverrides): Promise<BigNumber>;
+
     walletRegistration(
-      owner: PromiseOrValue<string>,
       deadline: PromiseOrValue<BigNumberish>,
+      nonce: PromiseOrValue<BigNumberish>,
+      owner: PromiseOrValue<string>,
       v: PromiseOrValue<BigNumberish>,
       r: PromiseOrValue<BytesLike>,
       s: PromiseOrValue<BytesLike>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: PayableOverrides & { from?: PromiseOrValue<string> }
     ): Promise<BigNumber>;
 
-    whenWalletWasRegisted(
+    "whenWalletWasRegisted(address)"(
       wallet: PromiseOrValue<string>,
       overrides?: CallOverrides
     ): Promise<BigNumber>;
+
+    "whenWalletWasRegisted()"(overrides?: CallOverrides): Promise<BigNumber>;
   };
 
   populateTransaction: {
+    DEADLINE_BLOCKS(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+
+    DEADLINE_MINUTES(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+
+    START_TIME_BLOCKS(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+
+    START_TIME_MINUTES(
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
+
     acknowledgementOfRegistry(
-      owner: PromiseOrValue<string>,
       deadline: PromiseOrValue<BigNumberish>,
+      nonce: PromiseOrValue<BigNumberish>,
+      owner: PromiseOrValue<string>,
       v: PromiseOrValue<BigNumberish>,
       r: PromiseOrValue<BytesLike>,
       s: PromiseOrValue<BytesLike>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: PayableOverrides & { from?: PromiseOrValue<string> }
     ): Promise<PopulatedTransaction>;
 
     generateHashStruct(
@@ -627,6 +838,11 @@ export interface StolenWalletRegistry extends BaseContract {
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
+    getDeadlines(
+      session: PromiseOrValue<string>,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
+
     "getStartTime(address)"(
       owner: PromiseOrValue<string>,
       overrides?: CallOverrides
@@ -634,17 +850,18 @@ export interface StolenWalletRegistry extends BaseContract {
 
     "getStartTime()"(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    "getTrustedForwarder(address)"(
-      owner: PromiseOrValue<string>,
+    getTrustedForwarder(
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
-    "getTrustedForwarder()"(
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    gracePeriodLeft(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    isWalletRegistered(
+    "isWalletRegistered(address)"(
       wallet: PromiseOrValue<string>,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
+
+    "isWalletRegistered()"(
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
@@ -670,17 +887,30 @@ export interface StolenWalletRegistry extends BaseContract {
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
+    regististrationPeriodExpired(
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
+
+    registrationPeriodLeft(
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
+
     walletRegistration(
-      owner: PromiseOrValue<string>,
       deadline: PromiseOrValue<BigNumberish>,
+      nonce: PromiseOrValue<BigNumberish>,
+      owner: PromiseOrValue<string>,
       v: PromiseOrValue<BigNumberish>,
       r: PromiseOrValue<BytesLike>,
       s: PromiseOrValue<BytesLike>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: PayableOverrides & { from?: PromiseOrValue<string> }
     ): Promise<PopulatedTransaction>;
 
-    whenWalletWasRegisted(
+    "whenWalletWasRegisted(address)"(
       wallet: PromiseOrValue<string>,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
+
+    "whenWalletWasRegisted()"(
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
   };

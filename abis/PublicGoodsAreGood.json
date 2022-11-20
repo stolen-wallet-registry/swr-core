@@ -1,0 +1,856 @@
+{
+  "abi": [
+    {
+      "inputs": [],
+      "name": "ENS_RESOVLER_ADDRESS",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "OP_RETROACTIVE_GOODS_ADRESS",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "OP_RETROACTIVE_GOODS_ENS",
+      "outputs": [
+        {
+          "internalType": "bytes32",
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "PROTOCOL_GUILD_ADRESS",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "PROTOCOL_GUILD_ENS",
+      "outputs": [
+        {
+          "internalType": "bytes32",
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "ens",
+      "outputs": [
+        {
+          "internalType": "contract ENS",
+          "name": "",
+          "type": "ENS"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "bytecode": {
+    "object": "0x61015561003a600b82828239805160001a60731461002d57634e487b7160e01b600052600060045260246000fd5b30600052607381538281f3fe730000000000000000000000000000000000000000301460806040526004361061006c5760003560e01c8063251d0eba146100715780633f15457f146100715780638784323d146100a4578063d3ae622c146100ce578063e2a30840146100e9578063e83d59fe14610104575b600080fd5b6100876e0c2e074ec69a0dfb2997ba6c7d2e1e81565b6040516001600160a01b0390911681526020015b60405180910390f35b6100c07109ea05ae4cae8e4de5acededec8e65ccae8d60731b81565b60405190815260200161009b565b6100c0700e0e4dee8dec6ded8ceead2d8c85ccae8d607b1b81565b610087731230f3c6b9cdf2f4b7d406ebc010e71dfb20eef481565b610087739876644568157cc35c0ad942b4ca2de2124b37328156fea26469706673582212202fd48bd86268c3ed901427b8031c266c7a6dd3ebc272521f40dea560a8cdd42564736f6c634300080f0033",
+    "sourceMap": "321:1769:95:-:0;;;;;;;;;;;;;;;-1:-1:-1;;;321:1769:95;;;;;;;;;;;;;;;;;",
+    "linkReferences": {}
+  },
+  "deployedBytecode": {
+    "object": "0x730000000000000000000000000000000000000000301460806040526004361061006c5760003560e01c8063251d0eba146100715780633f15457f146100715780638784323d146100a4578063d3ae622c146100ce578063e2a30840146100e9578063e83d59fe14610104575b600080fd5b6100876e0c2e074ec69a0dfb2997ba6c7d2e1e81565b6040516001600160a01b0390911681526020015b60405180910390f35b6100c07109ea05ae4cae8e4de5acededec8e65ccae8d60731b81565b60405190815260200161009b565b6100c0700e0e4dee8dec6ded8ceead2d8c85ccae8d607b1b81565b610087731230f3c6b9cdf2f4b7d406ebc010e71dfb20eef481565b610087739876644568157cc35c0ad942b4ca2de2124b37328156fea26469706673582212202fd48bd86268c3ed901427b8031c266c7a6dd3ebc272521f40dea560a8cdd42564736f6c634300080f0033",
+    "sourceMap": "321:1769:95:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;420:89;;467:42;420:89;;;;;-1:-1:-1;;;;;186:32:105;;;168:51;;156:2;141:18;420:89:95;;;;;;;;585:71;;-1:-1:-1;;;585:71:95;;;;;613:25:105;;;601:2;586:18;585:71:95;459:185:105;515:64:95;;-1:-1:-1;;;515:64:95;;662:90;;710:42;662:90;;776:96;;830:42;776:96;",
+    "linkReferences": {}
+  },
+  "methodIdentifiers": {
+    "ENS_RESOVLER_ADDRESS()": "251d0eba",
+    "OP_RETROACTIVE_GOODS_ADRESS()": "e83d59fe",
+    "OP_RETROACTIVE_GOODS_ENS()": "8784323d",
+    "PROTOCOL_GUILD_ADRESS()": "e2a30840",
+    "PROTOCOL_GUILD_ENS()": "d3ae622c",
+    "ens()": "3f15457f"
+  },
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.15+commit.e14f2714\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"ENS_RESOVLER_ADDRESS\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"OP_RETROACTIVE_GOODS_ADRESS\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"OP_RETROACTIVE_GOODS_ENS\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"PROTOCOL_GUILD_ADRESS\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"PROTOCOL_GUILD_ENS\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"ens\",\"outputs\":[{\"internalType\":\"contract ENS\",\"name\":\"\",\"type\":\"ENS\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"author\":\"TODO\",\"kind\":\"dev\",\"methods\":{},\"title\":\"Public goods are good.\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"src/v1/helpers/PublicGoodsAreGood.sol\":\"PublicGoodsAreGood\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[\":@chainlink/=node_modules/@chainlink/\",\":@connext/=node_modules/@connext/\",\":@helpers/=src/v1/helpers/\",\":@libraries/=src/v1/libraries/\",\":@openzeppelin/=node_modules/@openzeppelin/\",\":@openzeppelin/contracts-upgradeable/=lib/openzeppelin-contracts-upgradeable/contracts/\",\":@openzeppelin/contracts/=lib/openzeppelin-contracts/contracts/\",\":@std/=lib/forge-std/src/\",\":ds-test/=lib/forge-std/lib/ds-test/src/\",\":eth-gas-reporter/=node_modules/eth-gas-reporter/\",\":forge-std/=lib/forge-std/src/\",\":hardhat-deploy/=node_modules/hardhat-deploy/\",\":hardhat-diamond-abi/=node_modules/hardhat-diamond-abi/\",\":openzeppelin-contracts-upgradeable/=lib/openzeppelin-contracts-upgradeable/\",\":openzeppelin-contracts/=lib/openzeppelin-contracts/\"]},\"sources\":{\"src/v1/helpers/PublicGoodsAreGood.sol\":{\"keccak256\":\"0xf4c190a34a5fa469452b9c6aa0f9326d3437afc6c7e4252e0f87ac11be61d693\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://f758e4038b00b871727bc04e2a41d7f2256dc4e06c4df4bbb8767999c0665610\",\"dweb:/ipfs/QmQZvLfojQAfbKCjwhr8XzVzUJsRV6mcqqKRG8yGUY4wxH\"]}},\"version\":1}",
+  "metadata": {
+    "compiler": {
+      "version": "0.8.15+commit.e14f2714"
+    },
+    "language": "Solidity",
+    "output": {
+      "abi": [
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "ENS_RESOVLER_ADDRESS",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ]
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "OP_RETROACTIVE_GOODS_ADRESS",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ]
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "OP_RETROACTIVE_GOODS_ENS",
+          "outputs": [
+            {
+              "internalType": "bytes32",
+              "name": "",
+              "type": "bytes32"
+            }
+          ]
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "PROTOCOL_GUILD_ADRESS",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ]
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "PROTOCOL_GUILD_ENS",
+          "outputs": [
+            {
+              "internalType": "bytes32",
+              "name": "",
+              "type": "bytes32"
+            }
+          ]
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "ens",
+          "outputs": [
+            {
+              "internalType": "contract ENS",
+              "name": "",
+              "type": "ENS"
+            }
+          ]
+        }
+      ],
+      "devdoc": {
+        "kind": "dev",
+        "methods": {},
+        "version": 1
+      },
+      "userdoc": {
+        "kind": "user",
+        "methods": {},
+        "version": 1
+      }
+    },
+    "settings": {
+      "remappings": [
+        ":@chainlink/=node_modules/@chainlink/",
+        ":@connext/=node_modules/@connext/",
+        ":@helpers/=src/v1/helpers/",
+        ":@libraries/=src/v1/libraries/",
+        ":@openzeppelin/=node_modules/@openzeppelin/",
+        ":@openzeppelin/contracts-upgradeable/=lib/openzeppelin-contracts-upgradeable/contracts/",
+        ":@openzeppelin/contracts/=lib/openzeppelin-contracts/contracts/",
+        ":@std/=lib/forge-std/src/",
+        ":ds-test/=lib/forge-std/lib/ds-test/src/",
+        ":eth-gas-reporter/=node_modules/eth-gas-reporter/",
+        ":forge-std/=lib/forge-std/src/",
+        ":hardhat-deploy/=node_modules/hardhat-deploy/",
+        ":hardhat-diamond-abi/=node_modules/hardhat-diamond-abi/",
+        ":openzeppelin-contracts-upgradeable/=lib/openzeppelin-contracts-upgradeable/",
+        ":openzeppelin-contracts/=lib/openzeppelin-contracts/"
+      ],
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "metadata": {
+        "bytecodeHash": "ipfs"
+      },
+      "compilationTarget": {
+        "src/v1/helpers/PublicGoodsAreGood.sol": "PublicGoodsAreGood"
+      },
+      "libraries": {}
+    },
+    "sources": {
+      "src/v1/helpers/PublicGoodsAreGood.sol": {
+        "keccak256": "0xf4c190a34a5fa469452b9c6aa0f9326d3437afc6c7e4252e0f87ac11be61d693",
+        "urls": [
+          "bzz-raw://f758e4038b00b871727bc04e2a41d7f2256dc4e06c4df4bbb8767999c0665610",
+          "dweb:/ipfs/QmQZvLfojQAfbKCjwhr8XzVzUJsRV6mcqqKRG8yGUY4wxH"
+        ],
+        "license": "MIT"
+      }
+    },
+    "version": 1
+  },
+  "ast": {
+    "absolutePath": "src/v1/helpers/PublicGoodsAreGood.sol",
+    "id": 41524,
+    "exportedSymbols": {
+      "ENS": [
+        41489
+      ],
+      "ENSResolver": [
+        41497
+      ],
+      "PublicGoodsAreGood": [
+        41523
+      ]
+    },
+    "nodeType": "SourceUnit",
+    "src": "32:2059:95",
+    "nodes": [
+      {
+        "id": 41480,
+        "nodeType": "PragmaDirective",
+        "src": "32:24:95",
+        "nodes": [],
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".15"
+        ]
+      },
+      {
+        "id": 41489,
+        "nodeType": "ContractDefinition",
+        "src": "58:104:95",
+        "nodes": [
+          {
+            "id": 41488,
+            "nodeType": "FunctionDefinition",
+            "src": "86:74:95",
+            "nodes": [],
+            "functionSelector": "0178b8bf",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "resolver",
+            "nameLocation": "95:8:95",
+            "parameters": {
+              "id": 41483,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 41482,
+                  "mutability": "mutable",
+                  "name": "node",
+                  "nameLocation": "112:4:95",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 41488,
+                  "src": "104:12:95",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 41481,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "104:7:95",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "103:14:95"
+            },
+            "returnParameters": {
+              "id": 41487,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 41486,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 41488,
+                  "src": "147:11:95",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_ENSResolver_$41497",
+                    "typeString": "contract ENSResolver"
+                  },
+                  "typeName": {
+                    "id": 41485,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 41484,
+                      "name": "ENSResolver",
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 41497,
+                      "src": "147:11:95"
+                    },
+                    "referencedDeclaration": 41497,
+                    "src": "147:11:95",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_ENSResolver_$41497",
+                      "typeString": "contract ENSResolver"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "146:13:95"
+            },
+            "scope": 41489,
+            "stateMutability": "view",
+            "virtual": true,
+            "visibility": "public"
+          }
+        ],
+        "abstract": true,
+        "baseContracts": [],
+        "canonicalName": "ENS",
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "fullyImplemented": false,
+        "linearizedBaseContracts": [
+          41489
+        ],
+        "name": "ENS",
+        "nameLocation": "76:3:95",
+        "scope": 41524,
+        "usedErrors": []
+      },
+      {
+        "id": 41497,
+        "nodeType": "ContractDefinition",
+        "src": "164:104:95",
+        "nodes": [
+          {
+            "id": 41496,
+            "nodeType": "FunctionDefinition",
+            "src": "200:66:95",
+            "nodes": [],
+            "functionSelector": "3b3b57de",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "addr",
+            "nameLocation": "209:4:95",
+            "parameters": {
+              "id": 41492,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 41491,
+                  "mutability": "mutable",
+                  "name": "node",
+                  "nameLocation": "222:4:95",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 41496,
+                  "src": "214:12:95",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 41490,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "214:7:95",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "213:14:95"
+            },
+            "returnParameters": {
+              "id": 41495,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 41494,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 41496,
+                  "src": "257:7:95",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 41493,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "257:7:95",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "256:9:95"
+            },
+            "scope": 41497,
+            "stateMutability": "view",
+            "virtual": true,
+            "visibility": "public"
+          }
+        ],
+        "abstract": true,
+        "baseContracts": [],
+        "canonicalName": "ENSResolver",
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "fullyImplemented": false,
+        "linearizedBaseContracts": [
+          41497
+        ],
+        "name": "ENSResolver",
+        "nameLocation": "182:11:95",
+        "scope": 41524,
+        "usedErrors": []
+      },
+      {
+        "id": 41523,
+        "nodeType": "ContractDefinition",
+        "src": "321:1769:95",
+        "nodes": [
+          {
+            "id": 41501,
+            "nodeType": "EnumDefinition",
+            "src": "354:60:95",
+            "nodes": [],
+            "canonicalName": "PublicGoodsAreGood.SOURCE",
+            "members": [
+              {
+                "id": 41499,
+                "name": "OPTIMISM",
+                "nameLocation": "376:8:95",
+                "nodeType": "EnumValue",
+                "src": "376:8:95"
+              },
+              {
+                "id": 41500,
+                "name": "PROTOCOL_GUILD",
+                "nameLocation": "394:14:95",
+                "nodeType": "EnumValue",
+                "src": "394:14:95"
+              }
+            ],
+            "name": "SOURCE",
+            "nameLocation": "359:6:95"
+          },
+          {
+            "id": 41504,
+            "nodeType": "VariableDeclaration",
+            "src": "420:89:95",
+            "nodes": [],
+            "constant": true,
+            "functionSelector": "251d0eba",
+            "mutability": "constant",
+            "name": "ENS_RESOVLER_ADDRESS",
+            "nameLocation": "444:20:95",
+            "scope": 41523,
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_address",
+              "typeString": "address"
+            },
+            "typeName": {
+              "id": 41502,
+              "name": "address",
+              "nodeType": "ElementaryTypeName",
+              "src": "420:7:95",
+              "stateMutability": "nonpayable",
+              "typeDescriptions": {
+                "typeIdentifier": "t_address",
+                "typeString": "address"
+              }
+            },
+            "value": {
+              "hexValue": "307830303030303030303030304332453037346543363941306446623239393742413643376432653165",
+              "id": 41503,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "number",
+              "lValueRequested": false,
+              "nodeType": "Literal",
+              "src": "467:42:95",
+              "typeDescriptions": {
+                "typeIdentifier": "t_address",
+                "typeString": "address"
+              },
+              "value": "0x00000000000C2E074eC69A0dFb2997BA6C7d2e1e"
+            },
+            "visibility": "public"
+          },
+          {
+            "id": 41507,
+            "nodeType": "VariableDeclaration",
+            "src": "515:64:95",
+            "nodes": [],
+            "constant": true,
+            "functionSelector": "d3ae622c",
+            "mutability": "constant",
+            "name": "PROTOCOL_GUILD_ENS",
+            "nameLocation": "539:18:95",
+            "scope": 41523,
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_bytes32",
+              "typeString": "bytes32"
+            },
+            "typeName": {
+              "id": 41505,
+              "name": "bytes32",
+              "nodeType": "ElementaryTypeName",
+              "src": "515:7:95",
+              "typeDescriptions": {
+                "typeIdentifier": "t_bytes32",
+                "typeString": "bytes32"
+              }
+            },
+            "value": {
+              "hexValue": "70726f746f636f6c6775696c642e657468",
+              "id": 41506,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "string",
+              "lValueRequested": false,
+              "nodeType": "Literal",
+              "src": "560:19:95",
+              "typeDescriptions": {
+                "typeIdentifier": "t_stringliteral_5b895c0e264919e546af3adf307575efbfa7c3659364d5d9261d84add5692a52",
+                "typeString": "literal_string \"protocolguild.eth\""
+              },
+              "value": "protocolguild.eth"
+            },
+            "visibility": "public"
+          },
+          {
+            "id": 41510,
+            "nodeType": "VariableDeclaration",
+            "src": "585:71:95",
+            "nodes": [],
+            "constant": true,
+            "functionSelector": "8784323d",
+            "mutability": "constant",
+            "name": "OP_RETROACTIVE_GOODS_ENS",
+            "nameLocation": "609:24:95",
+            "scope": 41523,
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_bytes32",
+              "typeString": "bytes32"
+            },
+            "typeName": {
+              "id": 41508,
+              "name": "bytes32",
+              "nodeType": "ElementaryTypeName",
+              "src": "585:7:95",
+              "typeDescriptions": {
+                "typeIdentifier": "t_bytes32",
+                "typeString": "bytes32"
+              }
+            },
+            "value": {
+              "hexValue": "4f502d726574726f2d676f6f64732e657468",
+              "id": 41509,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "string",
+              "lValueRequested": false,
+              "nodeType": "Literal",
+              "src": "636:20:95",
+              "typeDescriptions": {
+                "typeIdentifier": "t_stringliteral_0aee227d4ec2831030602996857945eb74a3666f0a0289b6b55b3344bf3d940f",
+                "typeString": "literal_string \"OP-retro-goods.eth\""
+              },
+              "value": "OP-retro-goods.eth"
+            },
+            "visibility": "public"
+          },
+          {
+            "id": 41513,
+            "nodeType": "VariableDeclaration",
+            "src": "662:90:95",
+            "nodes": [],
+            "constant": true,
+            "functionSelector": "e2a30840",
+            "mutability": "constant",
+            "name": "PROTOCOL_GUILD_ADRESS",
+            "nameLocation": "686:21:95",
+            "scope": 41523,
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_address",
+              "typeString": "address"
+            },
+            "typeName": {
+              "id": 41511,
+              "name": "address",
+              "nodeType": "ElementaryTypeName",
+              "src": "662:7:95",
+              "stateMutability": "nonpayable",
+              "typeDescriptions": {
+                "typeIdentifier": "t_address",
+                "typeString": "address"
+              }
+            },
+            "value": {
+              "hexValue": "307831323330663363364239436466326634623744343036454243303130453731644662323065454634",
+              "id": 41512,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "number",
+              "lValueRequested": false,
+              "nodeType": "Literal",
+              "src": "710:42:95",
+              "typeDescriptions": {
+                "typeIdentifier": "t_address",
+                "typeString": "address"
+              },
+              "value": "0x1230f3c6B9Cdf2f4b7D406EBC010E71dFb20eEF4"
+            },
+            "visibility": "public"
+          },
+          {
+            "id": 41516,
+            "nodeType": "VariableDeclaration",
+            "src": "776:96:95",
+            "nodes": [],
+            "constant": true,
+            "functionSelector": "e83d59fe",
+            "mutability": "constant",
+            "name": "OP_RETROACTIVE_GOODS_ADRESS",
+            "nameLocation": "800:27:95",
+            "scope": 41523,
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_address",
+              "typeString": "address"
+            },
+            "typeName": {
+              "id": 41514,
+              "name": "address",
+              "nodeType": "ElementaryTypeName",
+              "src": "776:7:95",
+              "stateMutability": "nonpayable",
+              "typeDescriptions": {
+                "typeIdentifier": "t_address",
+                "typeString": "address"
+              }
+            },
+            "value": {
+              "hexValue": "307839383736363434353638313537436333356330614439343242344361326465323132346233373332",
+              "id": 41515,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "number",
+              "lValueRequested": false,
+              "nodeType": "Literal",
+              "src": "830:42:95",
+              "typeDescriptions": {
+                "typeIdentifier": "t_address",
+                "typeString": "address"
+              },
+              "value": "0x9876644568157Cc35c0aD942B4Ca2de2124b3732"
+            },
+            "visibility": "public"
+          },
+          {
+            "id": 41522,
+            "nodeType": "VariableDeclaration",
+            "src": "897:73:95",
+            "nodes": [],
+            "constant": true,
+            "functionSelector": "3f15457f",
+            "mutability": "constant",
+            "name": "ens",
+            "nameLocation": "917:3:95",
+            "scope": 41523,
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_contract$_ENS_$41489",
+              "typeString": "contract ENS"
+            },
+            "typeName": {
+              "id": 41518,
+              "nodeType": "UserDefinedTypeName",
+              "pathNode": {
+                "id": 41517,
+                "name": "ENS",
+                "nodeType": "IdentifierPath",
+                "referencedDeclaration": 41489,
+                "src": "897:3:95"
+              },
+              "referencedDeclaration": 41489,
+              "src": "897:3:95",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_ENS_$41489",
+                "typeString": "contract ENS"
+              }
+            },
+            "value": {
+              "arguments": [
+                {
+                  "hexValue": "307830303030303030303030304332453037346543363941306446623239393742413643376432653165",
+                  "id": 41520,
+                  "isConstant": false,
+                  "isLValue": false,
+                  "isPure": true,
+                  "kind": "number",
+                  "lValueRequested": false,
+                  "nodeType": "Literal",
+                  "src": "927:42:95",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "value": "0x00000000000C2E074eC69A0dFb2997BA6C7d2e1e"
+                }
+              ],
+              "expression": {
+                "argumentTypes": [
+                  {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                ],
+                "id": 41519,
+                "name": "ENS",
+                "nodeType": "Identifier",
+                "overloadedDeclarations": [],
+                "referencedDeclaration": 41489,
+                "src": "923:3:95",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_type$_t_contract$_ENS_$41489_$",
+                  "typeString": "type(contract ENS)"
+                }
+              },
+              "id": 41521,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "typeConversion",
+              "lValueRequested": false,
+              "names": [],
+              "nodeType": "FunctionCall",
+              "src": "923:47:95",
+              "tryCall": false,
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_ENS_$41489",
+                "typeString": "contract ENS"
+              }
+            },
+            "visibility": "public"
+          }
+        ],
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "PublicGoodsAreGood",
+        "contractDependencies": [],
+        "contractKind": "library",
+        "documentation": {
+          "id": 41498,
+          "nodeType": "StructuredDocumentation",
+          "src": "270:51:95",
+          "text": "@author TODO\n @title Public goods are good."
+        },
+        "fullyImplemented": true,
+        "linearizedBaseContracts": [
+          41523
+        ],
+        "name": "PublicGoodsAreGood",
+        "nameLocation": "329:18:95",
+        "scope": 41524,
+        "usedErrors": []
+      }
+    ],
+    "license": "MIT"
+  },
+  "id": 95
+}

@@ -23,16 +23,20 @@ import type {
 export interface PublicGoodsAreGoodInterface extends utils.Interface {
   functions: {
     "ENS_RESOVLER_ADDRESS()": FunctionFragment;
-    "OP_RETROACTIVE_GOODS_FUNDS()": FunctionFragment;
-    "PROTOCOL_GUILD_NODE()": FunctionFragment;
+    "OP_RETROACTIVE_GOODS_ADRESS()": FunctionFragment;
+    "OP_RETROACTIVE_GOODS_ENS()": FunctionFragment;
+    "PROTOCOL_GUILD_ADRESS()": FunctionFragment;
+    "PROTOCOL_GUILD_ENS()": FunctionFragment;
     "ens()": FunctionFragment;
   };
 
   getFunction(
     nameOrSignatureOrTopic:
       | "ENS_RESOVLER_ADDRESS"
-      | "OP_RETROACTIVE_GOODS_FUNDS"
-      | "PROTOCOL_GUILD_NODE"
+      | "OP_RETROACTIVE_GOODS_ADRESS"
+      | "OP_RETROACTIVE_GOODS_ENS"
+      | "PROTOCOL_GUILD_ADRESS"
+      | "PROTOCOL_GUILD_ENS"
       | "ens"
   ): FunctionFragment;
 
@@ -41,11 +45,19 @@ export interface PublicGoodsAreGoodInterface extends utils.Interface {
     values?: undefined
   ): string;
   encodeFunctionData(
-    functionFragment: "OP_RETROACTIVE_GOODS_FUNDS",
+    functionFragment: "OP_RETROACTIVE_GOODS_ADRESS",
     values?: undefined
   ): string;
   encodeFunctionData(
-    functionFragment: "PROTOCOL_GUILD_NODE",
+    functionFragment: "OP_RETROACTIVE_GOODS_ENS",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "PROTOCOL_GUILD_ADRESS",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "PROTOCOL_GUILD_ENS",
     values?: undefined
   ): string;
   encodeFunctionData(functionFragment: "ens", values?: undefined): string;
@@ -55,11 +67,19 @@ export interface PublicGoodsAreGoodInterface extends utils.Interface {
     data: BytesLike
   ): Result;
   decodeFunctionResult(
-    functionFragment: "OP_RETROACTIVE_GOODS_FUNDS",
+    functionFragment: "OP_RETROACTIVE_GOODS_ADRESS",
     data: BytesLike
   ): Result;
   decodeFunctionResult(
-    functionFragment: "PROTOCOL_GUILD_NODE",
+    functionFragment: "OP_RETROACTIVE_GOODS_ENS",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "PROTOCOL_GUILD_ADRESS",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "PROTOCOL_GUILD_ENS",
     data: BytesLike
   ): Result;
   decodeFunctionResult(functionFragment: "ens", data: BytesLike): Result;
@@ -96,27 +116,39 @@ export interface PublicGoodsAreGood extends BaseContract {
   functions: {
     ENS_RESOVLER_ADDRESS(overrides?: CallOverrides): Promise<[string]>;
 
-    OP_RETROACTIVE_GOODS_FUNDS(overrides?: CallOverrides): Promise<[string]>;
+    OP_RETROACTIVE_GOODS_ADRESS(overrides?: CallOverrides): Promise<[string]>;
 
-    PROTOCOL_GUILD_NODE(overrides?: CallOverrides): Promise<[string]>;
+    OP_RETROACTIVE_GOODS_ENS(overrides?: CallOverrides): Promise<[string]>;
+
+    PROTOCOL_GUILD_ADRESS(overrides?: CallOverrides): Promise<[string]>;
+
+    PROTOCOL_GUILD_ENS(overrides?: CallOverrides): Promise<[string]>;
 
     ens(overrides?: CallOverrides): Promise<[string]>;
   };
 
   ENS_RESOVLER_ADDRESS(overrides?: CallOverrides): Promise<string>;
 
-  OP_RETROACTIVE_GOODS_FUNDS(overrides?: CallOverrides): Promise<string>;
+  OP_RETROACTIVE_GOODS_ADRESS(overrides?: CallOverrides): Promise<string>;
 
-  PROTOCOL_GUILD_NODE(overrides?: CallOverrides): Promise<string>;
+  OP_RETROACTIVE_GOODS_ENS(overrides?: CallOverrides): Promise<string>;
+
+  PROTOCOL_GUILD_ADRESS(overrides?: CallOverrides): Promise<string>;
+
+  PROTOCOL_GUILD_ENS(overrides?: CallOverrides): Promise<string>;
 
   ens(overrides?: CallOverrides): Promise<string>;
 
   callStatic: {
     ENS_RESOVLER_ADDRESS(overrides?: CallOverrides): Promise<string>;
 
-    OP_RETROACTIVE_GOODS_FUNDS(overrides?: CallOverrides): Promise<string>;
+    OP_RETROACTIVE_GOODS_ADRESS(overrides?: CallOverrides): Promise<string>;
 
-    PROTOCOL_GUILD_NODE(overrides?: CallOverrides): Promise<string>;
+    OP_RETROACTIVE_GOODS_ENS(overrides?: CallOverrides): Promise<string>;
+
+    PROTOCOL_GUILD_ADRESS(overrides?: CallOverrides): Promise<string>;
+
+    PROTOCOL_GUILD_ENS(overrides?: CallOverrides): Promise<string>;
 
     ens(overrides?: CallOverrides): Promise<string>;
   };
@@ -126,9 +158,13 @@ export interface PublicGoodsAreGood extends BaseContract {
   estimateGas: {
     ENS_RESOVLER_ADDRESS(overrides?: CallOverrides): Promise<BigNumber>;
 
-    OP_RETROACTIVE_GOODS_FUNDS(overrides?: CallOverrides): Promise<BigNumber>;
+    OP_RETROACTIVE_GOODS_ADRESS(overrides?: CallOverrides): Promise<BigNumber>;
 
-    PROTOCOL_GUILD_NODE(overrides?: CallOverrides): Promise<BigNumber>;
+    OP_RETROACTIVE_GOODS_ENS(overrides?: CallOverrides): Promise<BigNumber>;
+
+    PROTOCOL_GUILD_ADRESS(overrides?: CallOverrides): Promise<BigNumber>;
+
+    PROTOCOL_GUILD_ENS(overrides?: CallOverrides): Promise<BigNumber>;
 
     ens(overrides?: CallOverrides): Promise<BigNumber>;
   };
@@ -138,11 +174,19 @@ export interface PublicGoodsAreGood extends BaseContract {
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
-    OP_RETROACTIVE_GOODS_FUNDS(
+    OP_RETROACTIVE_GOODS_ADRESS(
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
-    PROTOCOL_GUILD_NODE(
+    OP_RETROACTIVE_GOODS_ENS(
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
+
+    PROTOCOL_GUILD_ADRESS(
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
+
+    PROTOCOL_GUILD_ENS(
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
