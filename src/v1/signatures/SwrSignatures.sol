@@ -50,7 +50,7 @@ abstract contract SwrSignatures is EIP712Registration, EIP712Acknowledgement {
         bytes32 s
     ) public payable {
         // ensure signature was sent within the time limit
-        if (deadline <= block.timestamp) revert AcknowlegementExpired();
+        // if (deadline <= block.timestamp) revert AcknowlegementExpired();
 
         // verify signature was sent by owner
         // TODO tx.origin can fit somewhere in here for further assurances?

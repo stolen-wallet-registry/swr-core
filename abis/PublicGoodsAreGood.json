@@ -80,13 +80,13 @@
     }
   ],
   "bytecode": {
-    "object": "0x61015561003a600b82828239805160001a60731461002d57634e487b7160e01b600052600060045260246000fd5b30600052607381538281f3fe730000000000000000000000000000000000000000301460806040526004361061006c5760003560e01c8063251d0eba146100715780633f15457f146100715780638784323d146100a4578063d3ae622c146100ce578063e2a30840146100e9578063e83d59fe14610104575b600080fd5b6100876e0c2e074ec69a0dfb2997ba6c7d2e1e81565b6040516001600160a01b0390911681526020015b60405180910390f35b6100c07109ea05ae4cae8e4de5acededec8e65ccae8d60731b81565b60405190815260200161009b565b6100c0700e0e4dee8dec6ded8ceead2d8c85ccae8d607b1b81565b610087731230f3c6b9cdf2f4b7d406ebc010e71dfb20eef481565b610087739876644568157cc35c0ad942b4ca2de2124b37328156fea26469706673582212202fd48bd86268c3ed901427b8031c266c7a6dd3ebc272521f40dea560a8cdd42564736f6c634300080f0033",
-    "sourceMap": "321:1769:95:-:0;;;;;;;;;;;;;;;-1:-1:-1;;;321:1769:95;;;;;;;;;;;;;;;;;",
+    "object": "0x61015561003a600b82828239805160001a60731461002d57634e487b7160e01b600052600060045260246000fd5b30600052607381538281f3fe730000000000000000000000000000000000000000301460806040526004361061006c5760003560e01c8063251d0eba146100715780633f15457f146100715780638784323d146100a4578063d3ae622c146100ce578063e2a30840146100e9578063e83d59fe14610104575b600080fd5b6100876e0c2e074ec69a0dfb2997ba6c7d2e1e81565b6040516001600160a01b0390911681526020015b60405180910390f35b6100c07109ea05ae4cae8e4de5acededec8e65ccae8d60731b81565b60405190815260200161009b565b6100c0700e0e4dee8dec6ded8ceead2d8c85ccae8d607b1b81565b610087731230f3c6b9cdf2f4b7d406ebc010e71dfb20eef481565b610087739876644568157cc35c0ad942b4ca2de2124b37328156fea26469706673582212201360fd79796040c120c137322797eab1f71ed375a9587024b225c64751a9b89c64736f6c634300080f0033",
+    "sourceMap": "321:1769:26:-:0;;;;;;;;;;;;;;;-1:-1:-1;;;321:1769:26;;;;;;;;;;;;;;;;;",
     "linkReferences": {}
   },
   "deployedBytecode": {
-    "object": "0x730000000000000000000000000000000000000000301460806040526004361061006c5760003560e01c8063251d0eba146100715780633f15457f146100715780638784323d146100a4578063d3ae622c146100ce578063e2a30840146100e9578063e83d59fe14610104575b600080fd5b6100876e0c2e074ec69a0dfb2997ba6c7d2e1e81565b6040516001600160a01b0390911681526020015b60405180910390f35b6100c07109ea05ae4cae8e4de5acededec8e65ccae8d60731b81565b60405190815260200161009b565b6100c0700e0e4dee8dec6ded8ceead2d8c85ccae8d607b1b81565b610087731230f3c6b9cdf2f4b7d406ebc010e71dfb20eef481565b610087739876644568157cc35c0ad942b4ca2de2124b37328156fea26469706673582212202fd48bd86268c3ed901427b8031c266c7a6dd3ebc272521f40dea560a8cdd42564736f6c634300080f0033",
-    "sourceMap": "321:1769:95:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;420:89;;467:42;420:89;;;;;-1:-1:-1;;;;;186:32:105;;;168:51;;156:2;141:18;420:89:95;;;;;;;;585:71;;-1:-1:-1;;;585:71:95;;;;;613:25:105;;;601:2;586:18;585:71:95;459:185:105;515:64:95;;-1:-1:-1;;;515:64:95;;662:90;;710:42;662:90;;776:96;;830:42;776:96;",
+    "object": "0x730000000000000000000000000000000000000000301460806040526004361061006c5760003560e01c8063251d0eba146100715780633f15457f146100715780638784323d146100a4578063d3ae622c146100ce578063e2a30840146100e9578063e83d59fe14610104575b600080fd5b6100876e0c2e074ec69a0dfb2997ba6c7d2e1e81565b6040516001600160a01b0390911681526020015b60405180910390f35b6100c07109ea05ae4cae8e4de5acededec8e65ccae8d60731b81565b60405190815260200161009b565b6100c0700e0e4dee8dec6ded8ceead2d8c85ccae8d607b1b81565b610087731230f3c6b9cdf2f4b7d406ebc010e71dfb20eef481565b610087739876644568157cc35c0ad942b4ca2de2124b37328156fea26469706673582212201360fd79796040c120c137322797eab1f71ed375a9587024b225c64751a9b89c64736f6c634300080f0033",
+    "sourceMap": "321:1769:26:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;420:89;;467:42;420:89;;;;;-1:-1:-1;;;;;186:32:39;;;168:51;;156:2;141:18;420:89:26;;;;;;;;585:71;;-1:-1:-1;;;585:71:26;;;;;613:25:39;;;601:2;586:18;585:71:26;459:185:39;515:64:26;;-1:-1:-1;;;515:64:26;;662:90;;710:42;662:90;;776:96;;830:42;776:96;",
     "linkReferences": {}
   },
   "methodIdentifiers": {
@@ -97,7 +97,7 @@
     "PROTOCOL_GUILD_ENS()": "d3ae622c",
     "ens()": "3f15457f"
   },
-  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.15+commit.e14f2714\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"ENS_RESOVLER_ADDRESS\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"OP_RETROACTIVE_GOODS_ADRESS\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"OP_RETROACTIVE_GOODS_ENS\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"PROTOCOL_GUILD_ADRESS\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"PROTOCOL_GUILD_ENS\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"ens\",\"outputs\":[{\"internalType\":\"contract ENS\",\"name\":\"\",\"type\":\"ENS\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"author\":\"TODO\",\"kind\":\"dev\",\"methods\":{},\"title\":\"Public goods are good.\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"src/v1/helpers/PublicGoodsAreGood.sol\":\"PublicGoodsAreGood\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[\":@chainlink/=node_modules/@chainlink/\",\":@connext/=node_modules/@connext/\",\":@helpers/=src/v1/helpers/\",\":@libraries/=src/v1/libraries/\",\":@openzeppelin/=node_modules/@openzeppelin/\",\":@openzeppelin/contracts-upgradeable/=lib/openzeppelin-contracts-upgradeable/contracts/\",\":@openzeppelin/contracts/=lib/openzeppelin-contracts/contracts/\",\":@std/=lib/forge-std/src/\",\":ds-test/=lib/forge-std/lib/ds-test/src/\",\":eth-gas-reporter/=node_modules/eth-gas-reporter/\",\":forge-std/=lib/forge-std/src/\",\":hardhat-deploy/=node_modules/hardhat-deploy/\",\":hardhat-diamond-abi/=node_modules/hardhat-diamond-abi/\",\":openzeppelin-contracts-upgradeable/=lib/openzeppelin-contracts-upgradeable/\",\":openzeppelin-contracts/=lib/openzeppelin-contracts/\"]},\"sources\":{\"src/v1/helpers/PublicGoodsAreGood.sol\":{\"keccak256\":\"0xf4c190a34a5fa469452b9c6aa0f9326d3437afc6c7e4252e0f87ac11be61d693\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://f758e4038b00b871727bc04e2a41d7f2256dc4e06c4df4bbb8767999c0665610\",\"dweb:/ipfs/QmQZvLfojQAfbKCjwhr8XzVzUJsRV6mcqqKRG8yGUY4wxH\"]}},\"version\":1}",
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.15+commit.e14f2714\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"ENS_RESOVLER_ADDRESS\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"OP_RETROACTIVE_GOODS_ADRESS\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"OP_RETROACTIVE_GOODS_ENS\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"PROTOCOL_GUILD_ADRESS\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"PROTOCOL_GUILD_ENS\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"ens\",\"outputs\":[{\"internalType\":\"contract ENS\",\"name\":\"\",\"type\":\"ENS\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"author\":\"TODO\",\"kind\":\"dev\",\"methods\":{},\"title\":\"Public goods are good.\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"src/v1/helpers/PublicGoodsAreGood.sol\":\"PublicGoodsAreGood\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[\":@chainlink/=node_modules/@chainlink/\",\":@connext/=node_modules/@connext/\",\":@helpers/=src/v1/helpers/\",\":@libraries/=src/v1/libraries/\",\":@openzeppelin/=node_modules/@openzeppelin/\",\":@openzeppelin/contracts-upgradeable/=lib/openzeppelin-contracts-upgradeable/contracts/\",\":@openzeppelin/contracts/=lib/openzeppelin-contracts/contracts/\",\":@std/=lib/forge-std/src/\",\":@utils/=src/v1/utils/\",\":ds-test/=lib/forge-std/lib/ds-test/src/\",\":eth-gas-reporter/=node_modules/eth-gas-reporter/\",\":forge-std/=lib/forge-std/src/\",\":hardhat-deploy/=node_modules/hardhat-deploy/\",\":hardhat-diamond-abi/=node_modules/hardhat-diamond-abi/\",\":openzeppelin-contracts-upgradeable/=lib/openzeppelin-contracts-upgradeable/\",\":openzeppelin-contracts/=lib/openzeppelin-contracts/\"]},\"sources\":{\"src/v1/helpers/PublicGoodsAreGood.sol\":{\"keccak256\":\"0xf4c190a34a5fa469452b9c6aa0f9326d3437afc6c7e4252e0f87ac11be61d693\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://f758e4038b00b871727bc04e2a41d7f2256dc4e06c4df4bbb8767999c0665610\",\"dweb:/ipfs/QmQZvLfojQAfbKCjwhr8XzVzUJsRV6mcqqKRG8yGUY4wxH\"]}},\"version\":1}",
   "metadata": {
     "compiler": {
       "version": "0.8.15+commit.e14f2714"
@@ -205,6 +205,7 @@
         ":@openzeppelin/contracts-upgradeable/=lib/openzeppelin-contracts-upgradeable/contracts/",
         ":@openzeppelin/contracts/=lib/openzeppelin-contracts/contracts/",
         ":@std/=lib/forge-std/src/",
+        ":@utils/=src/v1/utils/",
         ":ds-test/=lib/forge-std/lib/ds-test/src/",
         ":eth-gas-reporter/=node_modules/eth-gas-reporter/",
         ":forge-std/=lib/forge-std/src/",
@@ -239,25 +240,25 @@
   },
   "ast": {
     "absolutePath": "src/v1/helpers/PublicGoodsAreGood.sol",
-    "id": 41524,
+    "id": 25209,
     "exportedSymbols": {
       "ENS": [
-        41489
+        25174
       ],
       "ENSResolver": [
-        41497
+        25182
       ],
       "PublicGoodsAreGood": [
-        41523
+        25208
       ]
     },
     "nodeType": "SourceUnit",
-    "src": "32:2059:95",
+    "src": "32:2059:26",
     "nodes": [
       {
-        "id": 41480,
+        "id": 25165,
         "nodeType": "PragmaDirective",
-        "src": "32:24:95",
+        "src": "32:24:26",
         "nodes": [],
         "literals": [
           "solidity",
@@ -267,34 +268,34 @@
         ]
       },
       {
-        "id": 41489,
+        "id": 25174,
         "nodeType": "ContractDefinition",
-        "src": "58:104:95",
+        "src": "58:104:26",
         "nodes": [
           {
-            "id": 41488,
+            "id": 25173,
             "nodeType": "FunctionDefinition",
-            "src": "86:74:95",
+            "src": "86:74:26",
             "nodes": [],
             "functionSelector": "0178b8bf",
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "resolver",
-            "nameLocation": "95:8:95",
+            "nameLocation": "95:8:26",
             "parameters": {
-              "id": 41483,
+              "id": 25168,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 41482,
+                  "id": 25167,
                   "mutability": "mutable",
                   "name": "node",
-                  "nameLocation": "112:4:95",
+                  "nameLocation": "112:4:26",
                   "nodeType": "VariableDeclaration",
-                  "scope": 41488,
-                  "src": "104:12:95",
+                  "scope": 25173,
+                  "src": "104:12:26",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -302,10 +303,10 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 41481,
+                    "id": 25166,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "104:7:95",
+                    "src": "104:7:26",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -314,50 +315,50 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "103:14:95"
+              "src": "103:14:26"
             },
             "returnParameters": {
-              "id": 41487,
+              "id": 25172,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 41486,
+                  "id": 25171,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 41488,
-                  "src": "147:11:95",
+                  "scope": 25173,
+                  "src": "147:11:26",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_ENSResolver_$41497",
+                    "typeIdentifier": "t_contract$_ENSResolver_$25182",
                     "typeString": "contract ENSResolver"
                   },
                   "typeName": {
-                    "id": 41485,
+                    "id": 25170,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 41484,
+                      "id": 25169,
                       "name": "ENSResolver",
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 41497,
-                      "src": "147:11:95"
+                      "referencedDeclaration": 25182,
+                      "src": "147:11:26"
                     },
-                    "referencedDeclaration": 41497,
-                    "src": "147:11:95",
+                    "referencedDeclaration": 25182,
+                    "src": "147:11:26",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_ENSResolver_$41497",
+                      "typeIdentifier": "t_contract$_ENSResolver_$25182",
                       "typeString": "contract ENSResolver"
                     }
                   },
                   "visibility": "internal"
                 }
               ],
-              "src": "146:13:95"
+              "src": "146:13:26"
             },
-            "scope": 41489,
+            "scope": 25174,
             "stateMutability": "view",
             "virtual": true,
             "visibility": "public"
@@ -370,42 +371,42 @@
         "contractKind": "contract",
         "fullyImplemented": false,
         "linearizedBaseContracts": [
-          41489
+          25174
         ],
         "name": "ENS",
-        "nameLocation": "76:3:95",
-        "scope": 41524,
+        "nameLocation": "76:3:26",
+        "scope": 25209,
         "usedErrors": []
       },
       {
-        "id": 41497,
+        "id": 25182,
         "nodeType": "ContractDefinition",
-        "src": "164:104:95",
+        "src": "164:104:26",
         "nodes": [
           {
-            "id": 41496,
+            "id": 25181,
             "nodeType": "FunctionDefinition",
-            "src": "200:66:95",
+            "src": "200:66:26",
             "nodes": [],
             "functionSelector": "3b3b57de",
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "addr",
-            "nameLocation": "209:4:95",
+            "nameLocation": "209:4:26",
             "parameters": {
-              "id": 41492,
+              "id": 25177,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 41491,
+                  "id": 25176,
                   "mutability": "mutable",
                   "name": "node",
-                  "nameLocation": "222:4:95",
+                  "nameLocation": "222:4:26",
                   "nodeType": "VariableDeclaration",
-                  "scope": 41496,
-                  "src": "214:12:95",
+                  "scope": 25181,
+                  "src": "214:12:26",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -413,10 +414,10 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 41490,
+                    "id": 25175,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "214:7:95",
+                    "src": "214:7:26",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -425,21 +426,21 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "213:14:95"
+              "src": "213:14:26"
             },
             "returnParameters": {
-              "id": 41495,
+              "id": 25180,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 41494,
+                  "id": 25179,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 41496,
-                  "src": "257:7:95",
+                  "scope": 25181,
+                  "src": "257:7:26",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -447,10 +448,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 41493,
+                    "id": 25178,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "257:7:95",
+                    "src": "257:7:26",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -460,9 +461,9 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "256:9:95"
+              "src": "256:9:26"
             },
-            "scope": 41497,
+            "scope": 25182,
             "stateMutability": "view",
             "virtual": true,
             "visibility": "public"
@@ -475,54 +476,54 @@
         "contractKind": "contract",
         "fullyImplemented": false,
         "linearizedBaseContracts": [
-          41497
+          25182
         ],
         "name": "ENSResolver",
-        "nameLocation": "182:11:95",
-        "scope": 41524,
+        "nameLocation": "182:11:26",
+        "scope": 25209,
         "usedErrors": []
       },
       {
-        "id": 41523,
+        "id": 25208,
         "nodeType": "ContractDefinition",
-        "src": "321:1769:95",
+        "src": "321:1769:26",
         "nodes": [
           {
-            "id": 41501,
+            "id": 25186,
             "nodeType": "EnumDefinition",
-            "src": "354:60:95",
+            "src": "354:60:26",
             "nodes": [],
             "canonicalName": "PublicGoodsAreGood.SOURCE",
             "members": [
               {
-                "id": 41499,
+                "id": 25184,
                 "name": "OPTIMISM",
-                "nameLocation": "376:8:95",
+                "nameLocation": "376:8:26",
                 "nodeType": "EnumValue",
-                "src": "376:8:95"
+                "src": "376:8:26"
               },
               {
-                "id": 41500,
+                "id": 25185,
                 "name": "PROTOCOL_GUILD",
-                "nameLocation": "394:14:95",
+                "nameLocation": "394:14:26",
                 "nodeType": "EnumValue",
-                "src": "394:14:95"
+                "src": "394:14:26"
               }
             ],
             "name": "SOURCE",
-            "nameLocation": "359:6:95"
+            "nameLocation": "359:6:26"
           },
           {
-            "id": 41504,
+            "id": 25189,
             "nodeType": "VariableDeclaration",
-            "src": "420:89:95",
+            "src": "420:89:26",
             "nodes": [],
             "constant": true,
             "functionSelector": "251d0eba",
             "mutability": "constant",
             "name": "ENS_RESOVLER_ADDRESS",
-            "nameLocation": "444:20:95",
-            "scope": 41523,
+            "nameLocation": "444:20:26",
+            "scope": 25208,
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -530,10 +531,10 @@
               "typeString": "address"
             },
             "typeName": {
-              "id": 41502,
+              "id": 25187,
               "name": "address",
               "nodeType": "ElementaryTypeName",
-              "src": "420:7:95",
+              "src": "420:7:26",
               "stateMutability": "nonpayable",
               "typeDescriptions": {
                 "typeIdentifier": "t_address",
@@ -542,14 +543,14 @@
             },
             "value": {
               "hexValue": "307830303030303030303030304332453037346543363941306446623239393742413643376432653165",
-              "id": 41503,
+              "id": 25188,
               "isConstant": false,
               "isLValue": false,
               "isPure": true,
               "kind": "number",
               "lValueRequested": false,
               "nodeType": "Literal",
-              "src": "467:42:95",
+              "src": "467:42:26",
               "typeDescriptions": {
                 "typeIdentifier": "t_address",
                 "typeString": "address"
@@ -559,16 +560,16 @@
             "visibility": "public"
           },
           {
-            "id": 41507,
+            "id": 25192,
             "nodeType": "VariableDeclaration",
-            "src": "515:64:95",
+            "src": "515:64:26",
             "nodes": [],
             "constant": true,
             "functionSelector": "d3ae622c",
             "mutability": "constant",
             "name": "PROTOCOL_GUILD_ENS",
-            "nameLocation": "539:18:95",
-            "scope": 41523,
+            "nameLocation": "539:18:26",
+            "scope": 25208,
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -576,10 +577,10 @@
               "typeString": "bytes32"
             },
             "typeName": {
-              "id": 41505,
+              "id": 25190,
               "name": "bytes32",
               "nodeType": "ElementaryTypeName",
-              "src": "515:7:95",
+              "src": "515:7:26",
               "typeDescriptions": {
                 "typeIdentifier": "t_bytes32",
                 "typeString": "bytes32"
@@ -587,14 +588,14 @@
             },
             "value": {
               "hexValue": "70726f746f636f6c6775696c642e657468",
-              "id": 41506,
+              "id": 25191,
               "isConstant": false,
               "isLValue": false,
               "isPure": true,
               "kind": "string",
               "lValueRequested": false,
               "nodeType": "Literal",
-              "src": "560:19:95",
+              "src": "560:19:26",
               "typeDescriptions": {
                 "typeIdentifier": "t_stringliteral_5b895c0e264919e546af3adf307575efbfa7c3659364d5d9261d84add5692a52",
                 "typeString": "literal_string \"protocolguild.eth\""
@@ -604,16 +605,16 @@
             "visibility": "public"
           },
           {
-            "id": 41510,
+            "id": 25195,
             "nodeType": "VariableDeclaration",
-            "src": "585:71:95",
+            "src": "585:71:26",
             "nodes": [],
             "constant": true,
             "functionSelector": "8784323d",
             "mutability": "constant",
             "name": "OP_RETROACTIVE_GOODS_ENS",
-            "nameLocation": "609:24:95",
-            "scope": 41523,
+            "nameLocation": "609:24:26",
+            "scope": 25208,
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -621,10 +622,10 @@
               "typeString": "bytes32"
             },
             "typeName": {
-              "id": 41508,
+              "id": 25193,
               "name": "bytes32",
               "nodeType": "ElementaryTypeName",
-              "src": "585:7:95",
+              "src": "585:7:26",
               "typeDescriptions": {
                 "typeIdentifier": "t_bytes32",
                 "typeString": "bytes32"
@@ -632,14 +633,14 @@
             },
             "value": {
               "hexValue": "4f502d726574726f2d676f6f64732e657468",
-              "id": 41509,
+              "id": 25194,
               "isConstant": false,
               "isLValue": false,
               "isPure": true,
               "kind": "string",
               "lValueRequested": false,
               "nodeType": "Literal",
-              "src": "636:20:95",
+              "src": "636:20:26",
               "typeDescriptions": {
                 "typeIdentifier": "t_stringliteral_0aee227d4ec2831030602996857945eb74a3666f0a0289b6b55b3344bf3d940f",
                 "typeString": "literal_string \"OP-retro-goods.eth\""
@@ -649,16 +650,16 @@
             "visibility": "public"
           },
           {
-            "id": 41513,
+            "id": 25198,
             "nodeType": "VariableDeclaration",
-            "src": "662:90:95",
+            "src": "662:90:26",
             "nodes": [],
             "constant": true,
             "functionSelector": "e2a30840",
             "mutability": "constant",
             "name": "PROTOCOL_GUILD_ADRESS",
-            "nameLocation": "686:21:95",
-            "scope": 41523,
+            "nameLocation": "686:21:26",
+            "scope": 25208,
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -666,10 +667,10 @@
               "typeString": "address"
             },
             "typeName": {
-              "id": 41511,
+              "id": 25196,
               "name": "address",
               "nodeType": "ElementaryTypeName",
-              "src": "662:7:95",
+              "src": "662:7:26",
               "stateMutability": "nonpayable",
               "typeDescriptions": {
                 "typeIdentifier": "t_address",
@@ -678,14 +679,14 @@
             },
             "value": {
               "hexValue": "307831323330663363364239436466326634623744343036454243303130453731644662323065454634",
-              "id": 41512,
+              "id": 25197,
               "isConstant": false,
               "isLValue": false,
               "isPure": true,
               "kind": "number",
               "lValueRequested": false,
               "nodeType": "Literal",
-              "src": "710:42:95",
+              "src": "710:42:26",
               "typeDescriptions": {
                 "typeIdentifier": "t_address",
                 "typeString": "address"
@@ -695,16 +696,16 @@
             "visibility": "public"
           },
           {
-            "id": 41516,
+            "id": 25201,
             "nodeType": "VariableDeclaration",
-            "src": "776:96:95",
+            "src": "776:96:26",
             "nodes": [],
             "constant": true,
             "functionSelector": "e83d59fe",
             "mutability": "constant",
             "name": "OP_RETROACTIVE_GOODS_ADRESS",
-            "nameLocation": "800:27:95",
-            "scope": 41523,
+            "nameLocation": "800:27:26",
+            "scope": 25208,
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -712,10 +713,10 @@
               "typeString": "address"
             },
             "typeName": {
-              "id": 41514,
+              "id": 25199,
               "name": "address",
               "nodeType": "ElementaryTypeName",
-              "src": "776:7:95",
+              "src": "776:7:26",
               "stateMutability": "nonpayable",
               "typeDescriptions": {
                 "typeIdentifier": "t_address",
@@ -724,14 +725,14 @@
             },
             "value": {
               "hexValue": "307839383736363434353638313537436333356330614439343242344361326465323132346233373332",
-              "id": 41515,
+              "id": 25200,
               "isConstant": false,
               "isLValue": false,
               "isPure": true,
               "kind": "number",
               "lValueRequested": false,
               "nodeType": "Literal",
-              "src": "830:42:95",
+              "src": "830:42:26",
               "typeDescriptions": {
                 "typeIdentifier": "t_address",
                 "typeString": "address"
@@ -741,36 +742,36 @@
             "visibility": "public"
           },
           {
-            "id": 41522,
+            "id": 25207,
             "nodeType": "VariableDeclaration",
-            "src": "897:73:95",
+            "src": "897:73:26",
             "nodes": [],
             "constant": true,
             "functionSelector": "3f15457f",
             "mutability": "constant",
             "name": "ens",
-            "nameLocation": "917:3:95",
-            "scope": 41523,
+            "nameLocation": "917:3:26",
+            "scope": 25208,
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_contract$_ENS_$41489",
+              "typeIdentifier": "t_contract$_ENS_$25174",
               "typeString": "contract ENS"
             },
             "typeName": {
-              "id": 41518,
+              "id": 25203,
               "nodeType": "UserDefinedTypeName",
               "pathNode": {
-                "id": 41517,
+                "id": 25202,
                 "name": "ENS",
                 "nodeType": "IdentifierPath",
-                "referencedDeclaration": 41489,
-                "src": "897:3:95"
+                "referencedDeclaration": 25174,
+                "src": "897:3:26"
               },
-              "referencedDeclaration": 41489,
-              "src": "897:3:95",
+              "referencedDeclaration": 25174,
+              "src": "897:3:26",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_ENS_$41489",
+                "typeIdentifier": "t_contract$_ENS_$25174",
                 "typeString": "contract ENS"
               }
             },
@@ -778,14 +779,14 @@
               "arguments": [
                 {
                   "hexValue": "307830303030303030303030304332453037346543363941306446623239393742413643376432653165",
-                  "id": 41520,
+                  "id": 25205,
                   "isConstant": false,
                   "isLValue": false,
                   "isPure": true,
                   "kind": "number",
                   "lValueRequested": false,
                   "nodeType": "Literal",
-                  "src": "927:42:95",
+                  "src": "927:42:26",
                   "typeDescriptions": {
                     "typeIdentifier": "t_address",
                     "typeString": "address"
@@ -800,18 +801,18 @@
                     "typeString": "address"
                   }
                 ],
-                "id": 41519,
+                "id": 25204,
                 "name": "ENS",
                 "nodeType": "Identifier",
                 "overloadedDeclarations": [],
-                "referencedDeclaration": 41489,
-                "src": "923:3:95",
+                "referencedDeclaration": 25174,
+                "src": "923:3:26",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_type$_t_contract$_ENS_$41489_$",
+                  "typeIdentifier": "t_type$_t_contract$_ENS_$25174_$",
                   "typeString": "type(contract ENS)"
                 }
               },
-              "id": 41521,
+              "id": 25206,
               "isConstant": false,
               "isLValue": false,
               "isPure": true,
@@ -819,10 +820,10 @@
               "lValueRequested": false,
               "names": [],
               "nodeType": "FunctionCall",
-              "src": "923:47:95",
+              "src": "923:47:26",
               "tryCall": false,
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_ENS_$41489",
+                "typeIdentifier": "t_contract$_ENS_$25174",
                 "typeString": "contract ENS"
               }
             },
@@ -835,22 +836,22 @@
         "contractDependencies": [],
         "contractKind": "library",
         "documentation": {
-          "id": 41498,
+          "id": 25183,
           "nodeType": "StructuredDocumentation",
-          "src": "270:51:95",
+          "src": "270:51:26",
           "text": "@author TODO\n @title Public goods are good."
         },
         "fullyImplemented": true,
         "linearizedBaseContracts": [
-          41523
+          25208
         ],
         "name": "PublicGoodsAreGood",
-        "nameLocation": "329:18:95",
-        "scope": 41524,
+        "nameLocation": "329:18:26",
+        "scope": 25209,
         "usedErrors": []
       }
     ],
     "license": "MIT"
   },
-  "id": 95
+  "id": 26
 }

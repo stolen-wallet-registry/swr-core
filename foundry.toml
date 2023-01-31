@@ -20,6 +20,7 @@ fuzz_runs = 1_000
 # Configure remappings
 
 remappings = [
+  "@utils/=src/v1/utils",
   "@std=lib/forge-std/src/",
   "@helpers/=src/v1/helpers/",
   "@libraries/=src/v1/libraries/",
