@@ -52,6 +52,9 @@ abstract contract SwrSignatures is EIP712Registration, EIP712Acknowledgement {
         // ensure signature was sent within the time limit
         // if (deadline <= block.timestamp) revert AcknowlegementExpired();
 
+        // is this necessary?
+        // require(nonce == nonces[owner], "Invalid nonce")
+
         // verify signature was sent by owner
         // TODO tx.origin can fit somewhere in here for further assurances?
         bytes32 digest = _hashTypedDataV4Acknowledgement(
