@@ -138,18 +138,7 @@ abstract contract SwrSignatures is EIP712Registration, EIP712Acknowledgement {
     // _gracePeriodSecsLeft
     // _registrationPeriodSecsLeft
     // _expired
-    function getDeadlines(address session)
-        public
-        view
-        returns (
-            uint256,
-            uint256,
-            uint256,
-            uint256,
-            uint256,
-            bool
-        )
-    {
+    function getDeadlines(address session) public view returns (uint256, uint256, uint256, uint256, uint256, bool) {
         TrustedForwarder storage forwarder = trustedForwarders[session];
 
         require(forwarder.trustedForwarder == msg.sender || session == msg.sender, "Invalid query");
@@ -179,14 +168,14 @@ abstract contract SwrSignatures is EIP712Registration, EIP712Acknowledgement {
         TrustedForwarder storage forwarder = trustedForwarders[msg.sender];
 
         require(block.timestamp <= forwarder.startTime);
-        uint256 _secondsLeft = forwarder.startTime - block.timestamp;
+        uint256 _secondsLeft = forwarder.startTime - block.number;
     }
 
     function registrationPeriodLeft() public view returns (uint256 _secondsLeft) {
         TrustedForwarder storage forwarder = trustedForwarders[msg.sender];
 
         require(block.timestamp <= forwarder.expirey);
-        uint256 _secondsLeft = forwarder.startTime - block.timestamp;
+        uint256 _secondsLeft = forwarder.startTime - block.number;
     }
 
     function regististrationPeriodExpired() public view returns (bool) {

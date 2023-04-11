@@ -1,59 +1,59 @@
 {
-    "name": "@wallet-hygiene/swr-contracts",
-    "license": "AGPL-3.0-only",
-    "version": "0.0.83",
-    "main": "dist/src/index.js",
-    "types": "dist/src/index.d.ts",
-    "directories": {
-        "lib": "lib"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git@github.com:stolen-wallet-registry/swr-core.git"
-    },
-    "private": false,
-    "publishConfig": {
-        "access": "public",
-        "registry": "https://registry.npmjs.org/"
-    },
-    "devDependencies": {
-        "@ethersproject/abi": "^5.6.4",
-        "@ethersproject/providers": "^5.6.8",
-        "@typechain/ethers-v5": "^10.1.0",
-        "ethers": "^5.6.9",
-        "prettier": "^2.3.1",
-        "prettier-plugin-solidity": "^1.0.0-beta.13",
-        "shx": "^0.3.4",
-        "typechain": "^8.1.0",
-        "typescript": "^4.3.2"
-    },
-    "scripts": {
-        "setup": "make clean && make build",
-        "sync": "make update",
-        "test": "make test",
-        "snapshot": "make snapshot",
-        "lint": "make lint",
-        "npm:publish": "yarn build && npm publish --access public --scope=@wallet-hygiene",
-        "build": "yarn build:clean && yarn build:sol && yarn copy:abis 2>/dev/null && yarn build:typechain && yarn build:ts",
-        "build:clean": "make clean && rm -rf dist abis typechain && shx mkdir dist",
-        "build:sol": "forge b --force --extra-output-files abi --optimizer-runs 200",
-        "rename:abis": "shx ls abis/**/*.abi.json | while read a; do n=$(echo $a | sed -e 's/\\(.abi\\)//g'); mv $a $n; done;",
-        "copy:abis": "shx mkdir abis 2>/dev/null && shx cp out/**.sol/*.json abis 2>/dev/null || true",
-        "build:typechain": "typechain --target ethers-v5 abis/**.json --out-dir typechain",
-        "build:ts": "npx tsc --build tsconfig.build.json",
-        "deploy:dev": "forge script script/StolenWalletRegistry.s.sol --froms 0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266 --private-key 0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80 --rpc-url http://localhost:8545 --broadcast",
-        "deploy:goerli": "forge script script/StolenWalletRegistry.s.sol --froms 0xb0cffE0260BF4eA7b59915fBEa17273a8B9209F6 --private-key 88161fd8582fdafeb7f33f530b2b93a76d4da9e49361c235cc07a6271ae1ffcb --rpc-url https://eth-goerli.g.alchemy.com/v2/dGHKTJ4TvvxtuV1DpBlV6XTehrNmm0xX --etherscan-api-key C6I3XYZ35GSZSK41Y1YJGCJJ8ME7DGS8HX --verify --broadcast"
-    },
-    "bugs": {
-        "url": "https://github.com/stolen-wallet-registry/swr-core/issues"
-    },
-    "homepage": "https://github.com/stolen-wallet-registry/swr-core#readme",
-    "dependencies": {
-        "@chainlink/contracts": "^0.4.1",
-        "@connext/nxtp-contracts": "^0.2.0-beta.17",
-        "@libp2p/webrtc-star-signalling-server": "^2.0.5",
-        "@openzeppelin/contracts": "^4.7.1",
-        "@openzeppelin/contracts-upgradeable": "^4.7.1",
-        "@wallet-hygiene/swr-contracts": "^0.0.6"
-    }
+  "name": "@wallet-hygiene/swr-contracts",
+  "license": "AGPL-3.0-only",
+  "version": "0.0.85",
+  "main": "dist/src/index.js",
+  "types": "dist/src/index.d.ts",
+  "directories": {
+    "lib": "lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:stolen-wallet-registry/swr-core.git"
+  },
+  "private": false,
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "devDependencies": {
+    "@ethersproject/abi": "^5.6.4",
+    "@ethersproject/providers": "^5.6.8",
+    "@typechain/ethers-v5": "^10.1.0",
+    "ethers": "^5.6.9",
+    "prettier": "^2.3.1",
+    "prettier-plugin-solidity": "^1.0.0-beta.13",
+    "shx": "^0.3.4",
+    "typechain": "^8.1.0",
+    "typescript": "^4.3.2"
+  },
+  "scripts": {
+    "setup": "make clean && make build",
+    "sync": "make update",
+    "test": "make test",
+    "snapshot": "make snapshot",
+    "lint": "make lint",
+    "npm:publish": "yarn build && npm publish --access public --scope=@wallet-hygiene",
+    "build": "yarn build:clean && yarn build:sol && yarn copy:abis 2>/dev/null && yarn build:typechain && yarn build:ts",
+    "build:clean": "make clean && rm -rf dist abis typechain && shx mkdir dist",
+    "build:sol": "forge b --force --extra-output-files abi --optimizer-runs 200",
+    "rename:abis": "shx ls abis/**/*.abi.json | while read a; do n=$(echo $a | sed -e 's/\\(.abi\\)//g'); mv $a $n; done;",
+    "copy:abis": "shx mkdir abis 2>/dev/null && shx cp out/**.sol/*.json abis 2>/dev/null || true",
+    "build:typechain": "typechain --target ethers-v5 abis/**.json --out-dir typechain",
+    "build:ts": "npx tsc --build tsconfig.build.json",
+    "deploy:dev": "forge script script/StolenWalletRegistry.s.sol --froms 0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266 --private-key 0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80 --rpc-url http://localhost:8545 --broadcast",
+    "deploy:goerli": "forge script script/StolenWalletRegistry.s.sol --froms 0xb0cffE0260BF4eA7b59915fBEa17273a8B9209F6 --private-key 88161fd8582fdafeb7f33f530b2b93a76d4da9e49361c235cc07a6271ae1ffcb --rpc-url https://eth-goerli.g.alchemy.com/v2/dGHKTJ4TvvxtuV1DpBlV6XTehrNmm0xX --etherscan-api-key C6I3XYZ35GSZSK41Y1YJGCJJ8ME7DGS8HX --verify --broadcast"
+  },
+  "bugs": {
+    "url": "https://github.com/stolen-wallet-registry/swr-core/issues"
+  },
+  "homepage": "https://github.com/stolen-wallet-registry/swr-core#readme",
+  "dependencies": {
+    "@chainlink/contracts": "^0.4.1",
+    "@connext/nxtp-contracts": "^0.2.0-beta.17",
+    "@libp2p/webrtc-star-signalling-server": "^2.0.5",
+    "@openzeppelin/contracts": "^4.7.1",
+    "@openzeppelin/contracts-upgradeable": "^4.7.1",
+    "@wallet-hygiene/swr-contracts": "^0.0.6"
+  }
 }

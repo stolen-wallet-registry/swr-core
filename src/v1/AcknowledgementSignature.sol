@@ -47,13 +47,4 @@ abstract contract AcknowledgementSignature is EIP712Acknowledgement {
     function getDeadline() public view returns (uint256) {
         return CommonUtils._getDeadline();
     }
-
-    // function generateHashStruct(address forwarder) public view returns (uint256 deadline, bytes32 hashStruct) {
-    //     uint256 deadline = _getDeadline();
-    //     bytes32 hashStruct = keccak256(
-    //         abi.encode(ACKNOWLEDGEMENT_TYPEHASH, msg.sender, forwarder, nonces[msg.sender], deadline)
-    //     );
-    //
-    //     return (deadline, hashStruct);
-    // }
 }
