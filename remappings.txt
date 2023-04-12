@@ -1,0 +1,17 @@
+@chainlink/=node_modules/@chainlink/
+@connext/=node_modules/@connext/
+@helpers/=src/v1/helpers/
+@libraries/=src/v1/libraries/
+@openzeppelin/=node_modules/@openzeppelin/
+@openzeppelin/contracts-upgradeable/=lib/openzeppelin-contracts-upgradeable/contracts/
+@openzeppelin/contracts/=lib/openzeppelin-contracts/contracts/
+@std/=lib/forge-std/src/
+@utils/=src/v1/utils/
+ds-test/=lib/forge-std/lib/ds-test/src/
+eth-gas-reporter/=node_modules/eth-gas-reporter/
+forge-std/=lib/forge-std/src/
+hardhat-deploy/=node_modules/hardhat-deploy/
+hardhat-diamond-abi/=node_modules/hardhat-diamond-abi/
+openzeppelin-contracts-upgradeable/=lib/openzeppelin-contracts-upgradeable/
+openzeppelin-contracts/=lib/openzeppelin-contracts/
+v1/=src/v1/

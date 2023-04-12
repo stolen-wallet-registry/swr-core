@@ -1,21 +1,25 @@
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.15;
 
-import "openzeppelin-contracts/contracts/utils/Strings.sol";
-import "openzeppelin-contracts/contracts/utils/Base64.sol";
-import "openzeppelin-contracts/contracts/access/Ownable.sol";
-import "openzeppelin-contracts/contracts/utils/Counters.sol";
-import "openzeppelin-contracts/contracts/token/ERC721/ERC721.sol";
+import {Strings} from "openzeppelin-contracts/contracts/utils/Strings.sol";
+import {Base64} from "openzeppelin-contracts/contracts/utils/Base64.sol";
+import {Ownable} from "openzeppelin-contracts/contracts/access/Ownable.sol";
+import {Counters} from "openzeppelin-contracts/contracts/utils/Counters.sol";
+import {ERC721} from "openzeppelin-contracts/contracts/token/ERC721/ERC721.sol";
 
-import "@libraries/StaticTranslations.sol";
+import {StaticTranslations, LanguageTranslation} from "@libraries/StaticTranslations.sol";
 
 contract StolenWalletNFT is ERC721, Ownable {
     using StaticTranslations for string;
+
     error NonTransferrable();
-    error UnableToBurn();
+    error UnableToBurn(uint256 tokenId);
 
     using Counters for Counters.Counter;
+
     Counters.Counter private _tokenIdCounter;
 
+    // solhint-disable-next-line no-empty-blocks
     constructor() ERC721("StolenWalletRegistry", "BURN") {}
 
     function _baseURI() internal pure override returns (string memory) {
@@ -34,17 +38,13 @@ contract StolenWalletNFT is ERC721, Ownable {
         emit Minted(msg.sender, tokenId);
     }
 
-    function _beforeTokenTransfer(
-        address from,
-        address to,
-        uint256 tokenId
-    ) internal override(ERC721) {
+    function _beforeTokenTransfer(address from, address to, uint256 tokenId) internal override(ERC721) {
         if (from == address(0)) revert NonTransferrable();
         super._beforeTokenTransfer(from, to, tokenId);
     }
 
     function _burn(uint256 tokenId) internal pure override(ERC721) {
-        if (true == false) revert UnableToBurn();
+        revert UnableToBurn(tokenId);
     }
 
     /**
@@ -63,14 +63,14 @@ contract StolenWalletNFT is ERC721, Ownable {
                 Base64.encode(
                     bytes(
                         abi.encodePacked(
-                            '{"name":"',
+                            "{'name':'",
                             name,
-                            '", "description":"',
+                            "', 'description':'",
                             description,
-                            '", "image": "',
+                            "', 'image': '",
                             "data:image/svg+xml;base64,",
                             image,
-                            '"}'
+                            "'}"
                         )
                     )
                 )
@@ -85,15 +85,15 @@ contract StolenWalletNFT is ERC721, Ownable {
     function generateImage(uint256 tokenId) internal pure returns (string memory svg) {
         svg = string(
             abi.encodePacked(
-                '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">',
+                "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'>",
                 "<defs>",
-                '<text xml:lang="en-US" id="a">This wallet has been signed as stolen.</text>',
+                "<text xml:lang='en-US' id='a'>This wallet has been signed as stolen.</text>",
                 "</defs>",
-                '<rect width="100%" height="100%" />',
+                "<rect width='100%' height='100%' />",
                 // _generateSVGBorderText(),
                 "TokenId: ",
                 tokenId,
-                '<switch fill="#fff" stroke="#000" font-family="Helvetica" font-size="18" font-weight="bold">',
+                "<switch fill='#fff' stroke='#000' font-family='Helvetica' font-size='18' font-weight='bold'>",
                 _addTranslations(),
                 "</svg>"
             )
@@ -208,18 +208,18 @@ contract StolenWalletNFT is ERC721, Ownable {
     function _addTranslation(LanguageTranslation memory translation) private pure returns (string memory svg) {
         svg = string(
             abi.encodePacked(
-                '<g systemLanguage="',
+                "<g systemLanguage='",
                 translation.languageCode,
                 ">",
-                '<text xml:lang="',
+                "<text xml:lang='",
                 translation.languageCode,
-                '" x="20" y="255">',
+                "x='20' y='255'>",
                 translation.sentence,
                 "</text>",
-                '<use x="20" y="275" href="#a" />',
-                '<text xml:lang="',
+                "<use x='20' y='275' href='#a' />",
+                "<text xml:lang='",
                 translation.languageCode,
-                '" x="20" y="255">',
+                "x='20' y='255'>",
                 translation.language,
                 "</text>",
                 "--&gt;",
@@ -237,29 +237,30 @@ contract StolenWalletNFT is ERC721, Ownable {
         string memory quoteTokenSymbol,
         string memory baseTokenSymbol
     ) private pure returns (string memory svg) {
+        // solhint-disable max-line-length
         svg = string(
             abi.encodePacked(
-                '<text text-rendering="optimizeSpeed">',
-                '<textPath startOffset="-100%" fill="white" font-family="\'Courier New\', monospace" font-size="10px" xlink:href="#text-path-a">',
+                "<text text-rendering='optimizeSpeed'>",
+                "<textPath startOffset='-100%' fill='white' font-family='Courier New', monospace' font-size='10px' xlink:href='#text-path-a'>",
                 baseToken,
                 unicode" • ",
                 baseTokenSymbol,
-                ' <animate additive="sum" attributeName="startOffset" from="0%" to="100%" begin="0s" dur="30s" repeatCount="indefinite" />',
-                '</textPath> <textPath startOffset="0%" fill="white" font-family="\'Courier New\', monospace" font-size="10px" xlink:href="#text-path-a">',
+                " <animate additive='sum' attributeName='startOffset' from='0%' to='100%' begin='0s' dur='30s' repeatCount='indefinite' />",
+                "</textPath> <textPath startOffset='0%' fill='white' font-family='Courier New', monospace' font-size='10px' xlink:href='#text-path-a'>",
                 baseToken,
                 unicode" • ",
                 baseTokenSymbol,
-                ' <animate additive="sum" attributeName="startOffset" from="0%" to="100%" begin="0s" dur="30s" repeatCount="indefinite" /> </textPath>',
-                '<textPath startOffset="50%" fill="white" font-family="\'Courier New\', monospace" font-size="10px" xlink:href="#text-path-a">',
+                " <animate additive='sum' attributeName='startOffset' from='0%' to='100%' begin='0s' dur='30s' repeatCount='indefinite' /> </textPath>",
+                "<textPath startOffset='50%' fill='white' font-family='Courier New', monospace' font-size='10px' xlink:href='#text-path-a'>",
                 quoteToken,
                 unicode" • ",
                 quoteTokenSymbol,
-                ' <animate additive="sum" attributeName="startOffset" from="0%" to="100%" begin="0s" dur="30s"',
-                ' repeatCount="indefinite" /></textPath><textPath startOffset="-50%" fill="white" font-family="\'Courier New\', monospace" font-size="10px" xlink:href="#text-path-a">',
+                " <animate additive='sum' attributeName='startOffset' from='0%' to='100%' begin='0s' dur='30s'",
+                " repeatCount='indefinite' /></textPath><textPath startOffset='-50%' fill='white' font-family='Courier New', monospace' font-size='10px' xlink:href='#text-path-a'>",
                 quoteToken,
                 unicode" • ",
                 quoteTokenSymbol,
-                ' <animate additive="sum" attributeName="startOffset" from="0%" to="100%" begin="0s" dur="30s" repeatCount="indefinite" /></textPath></text>'
+                " <animate additive='sum' attributeName='startOffset' from='0%' to='100%' begin='0s' dur='30s' repeatCount='indefinite' /></textPath></text>"
             )
         );
     }
