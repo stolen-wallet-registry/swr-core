@@ -41,8 +41,7 @@
     "copy:abis": "shx mkdir abis 2>/dev/null && shx cp out/**.sol/*.json abis 2>/dev/null || true",
     "build:typechain": "typechain --target ethers-v5 abis/**.json --out-dir typechain",
     "build:ts": "npx tsc --build tsconfig.build.json",
-    "deploy:dev": "forge script script/StolenWalletRegistry.s.sol --froms 0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266 --private-key 0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80 --rpc-url http://localhost:8545 --broadcast",
-    "deploy:goerli": "forge script script/StolenWalletRegistry.s.sol --froms 0xb0cffE0260BF4eA7b59915fBEa17273a8B9209F6 --private-key 88161fd8582fdafeb7f33f530b2b93a76d4da9e49361c235cc07a6271ae1ffcb --rpc-url https://eth-goerli.g.alchemy.com/v2/dGHKTJ4TvvxtuV1DpBlV6XTehrNmm0xX --etherscan-api-key C6I3XYZ35GSZSK41Y1YJGCJJ8ME7DGS8HX --verify --broadcast"
+    "deploy:dev": "forge script script/StolenWalletRegistry.s.sol --froms 0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266 --private-key 0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80 --rpc-url http://localhost:8545 --broadcast"
   },
   "bugs": {
     "url": "https://github.com/stolen-wallet-registry/swr-core/issues"
